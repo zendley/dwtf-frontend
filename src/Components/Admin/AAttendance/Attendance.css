@@ -1,0 +1,37 @@
+.attable{
+    background-color: white;
+}
+
+.attable th {
+    background-color: #463B3B;
+    color: #fff;
+    padding: 0.5em 1em;
+}
+
+.attable td {
+    border: 1px solid black;
+    padding: 0.5em 1em;
+}
+
+.attable input {
+    cursor: pointer;
+}
+
+/* Column types */
+.attable th.missed-col {
+    background-color: #463B3B;
+}
+
+.attable td.missed-col {
+    background-color: #ffecec;
+    color: #f58aa6;
+    text-align: center;
+}
+
+.name-col {
+    text-align: left;
+}
+
+.tape{
+    overflow-x: scroll;
+}
