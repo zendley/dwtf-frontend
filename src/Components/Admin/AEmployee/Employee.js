@@ -450,8 +450,10 @@ if(loadermain === true)
         <td>{tabl.address}</td>
         
         <td>
-          <Link style={{all: 'unset', cursor: 'pointer'}} to="/employee" onClick={()=>{setImgUrl('https://dwf.walnuthash.com/public/uploads/employee/' + tabl.cnic); setImgtIsOpen(true); }}>
+          <Link style={{all: 'unset', cursor: 'pointer'}} to="/employee" onClick={()=>{setImgUrl('https://dwf.walnuthash.com/public/uploads/employee/' + tabl.cnic_f); setImgtIsOpen(true); }}>
             <img style={{ margin: '5px', width: '50px'}} src={'https://dwf.walnuthash.com/public/uploads/employee/' + tabl.cnic_f} alt={`Employee Cnic`}  className="img-responsive" />
+          </Link>
+          <Link style={{all: 'unset', cursor: 'pointer'}} to="/employee" onClick={()=>{setImgUrl('https://dwf.walnuthash.com/public/uploads/employee/' + tabl.cnic_b); setImgtIsOpen(true); }}>
             <img style={{width: '50px'}} src={'https://dwf.walnuthash.com/public/uploads/employee/' + tabl.cnic_b} alt={`Employee Cnic`}  className="img-responsive" />
           </Link>
         </td>

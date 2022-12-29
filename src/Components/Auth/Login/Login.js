@@ -5,6 +5,7 @@ import React, {useState} from 'react'
 import axios from '../../../Api/Axios';
 import * as axiosURL from '../../../Api/AxiosUrls';
 import ll2 from '../../../Assets/Images/loginlogo.png';
+import { Alert } from "bootstrap";
 
 // const Login_Url = "http://127.0.0.1:8000/api/auth/login";
 var Login_Url = axiosURL.Login;
@@ -61,20 +62,22 @@ export default function Login(props) {
             password: ''
           });
 
-          
   
         } catch (err) {
+         
+          // console.log(err)
+          // console.log(err.response.data.message)
           if(!err.response){
-            setErrMsg('No server response');
+            alert('No server response');
           }
           else if(err.response.status === 400){
-            setErrMsg('Missing Username or Password');
+            alert('Missing Username or Password');
           }
           else if(err.response.status === 401){
-            setErrMsg('Unauthorized');
+            alert('Unauthorized');
           }
           else {
-            setErrMsg('Login Failed');
+            alert('Incorrect username or password');
           }
   
           
