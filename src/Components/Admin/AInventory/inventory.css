@@ -1,0 +1,27 @@
+.cucard
+{
+    margin-bottom: 20px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    background-color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cuicard
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.cuicard p{
+    margin: 0px;
+}
+
+.row{
+    min-height: max-content !important;
+}
