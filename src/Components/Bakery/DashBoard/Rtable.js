@@ -72,13 +72,34 @@ export default function Rtable() {
     //     setFlavAmt(data);
     // }
 
-    const handleFormChange = e => {
-        const { name, value } = e.target;
-        setFlavAmt(prevState => ({
-          ...prevState,
-          [name]: value
-        }));
-      };
+    // const handleFormChange = e => {
+    //     const { name, value } = e.target;
+    //     setFlavAmt(prevState => ({
+    //       ...prevState,
+    //       [name]: value
+    //     }));
+    //   };
+
+
+      const handleFormChange = (e, val) => {
+        console.log(val)
+        if(val < e.target.value)
+        {
+            const { name, value } = e.target;
+            setFlavAmt(prevState => ({
+              ...prevState,
+              [name]: val
+            }));
+        }
+        else
+        {
+            const { name, value } = e.target;
+            setFlavAmt(prevState => ({
+              ...prevState,
+              [name]: value
+            }));
+        }
+      }
 
     useEffect(() => {
       getData();
@@ -712,7 +733,7 @@ export default function Rtable() {
                                 name={kis.flavour_name}
                                 type="number"
                                 placeholder="Enter amount or leave empty for no movement"
-                                onChange={handleFormChange}
+                                onChange={event =>{handleFormChange(event, kis.production - kis.sold)}}
                             />
                             </Form.Group>
 

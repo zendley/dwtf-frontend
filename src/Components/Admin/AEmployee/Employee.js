@@ -67,6 +67,7 @@ export default function Employee() {
 
           var res = response.data;
 
+          // console.log(res)
           setTable(res);
 
     } catch (err) {
@@ -137,6 +138,7 @@ export default function Employee() {
         phone: table.length !== 0 ? table[index].phone : "",
         salary: table.length !== 0 ? table[index].salary : "",
         joining: table.length !== 0 ? table[index].joining_date : "",
+        branch_name: table.length !== 0 ? table[index].branch_name : "",
     }));
     
     setEditIsOpen(true);
@@ -509,7 +511,7 @@ if(loadermain === true)
                 <option >Select Kiosk</option>
                 {list.map((tabl, index)=>{
               return(
-                <option key={tabl.id} value={tabl.location} >{tabl.location}</option>
+                <option key={tabl.id} selected={tabl.location === editdata.location} value={tabl.location} >{tabl.location}</option>
                 );
               })}
 
