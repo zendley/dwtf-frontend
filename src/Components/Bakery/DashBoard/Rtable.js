@@ -61,6 +61,7 @@ export default function Rtable() {
     const [red, setRed] = useState([])
     const [isred, setIsRed] = useState()
     const [isSubmit, setIsSUBMIT] = useState()
+    const [submitbuttshow, setSubmitButtShow] = useState(false)
 
     const [inputFields, setInputFields] = useState([
         {flavour: '', quantity: ''},
@@ -82,7 +83,7 @@ export default function Rtable() {
 
 
       const handleFormChange = (e, val) => {
-        console.log(val)
+        // console.log(val)
         if(val < e.target.value)
         {
             const { name, value } = e.target;
@@ -265,6 +266,7 @@ export default function Rtable() {
         // console.log(dataaa)
 
         setEData(dataaa)
+        setSubmitButtShow(false);
         handleRemainingProd();
 
         
@@ -299,6 +301,7 @@ export default function Rtable() {
                     {   
                         // console.log(response.data)
                         setRerender(!rerender); 
+                        setSubmitButtShow(true);
                         setLoaderMain(false);
                         
                     }
@@ -343,9 +346,9 @@ export default function Rtable() {
                     
                     setRerender(!rerender);
                     setLoaderMain(false);
+                    alert(response.data.message)
                 }
             })
-            alert("Submitted successfully!")
         }
     }
     }
@@ -557,7 +560,7 @@ export default function Rtable() {
                     <h2>Remaining = {remainingProd}</h2>
                     <div className="buttons">
 
-                    <button style={{width:'130px'}} onClick={handleClear } className="pBut">
+                    <button style={{width:'130px'}} onClick={() => {if (window.confirm(`Are you sure you wish to Clear today's production?`)) handleClear()} } className="pBut">
                   Clear
                 </button>
                         
@@ -642,9 +645,18 @@ export default function Rtable() {
             
             } 
 
+            {submitbuttshow === true ?
+            
             <button onClick={()=>{HandleSubmitButt();} } className="pBut">
                             Submit
             </button>
+            
+            :
+            
+            ""
+
+            }
+
 
           </div> 
           : 

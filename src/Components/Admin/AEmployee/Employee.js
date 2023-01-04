@@ -294,11 +294,11 @@ else if (adddata.joining === undefined ){
 else if (adddata.branch_name === undefined ){
     alert("Missing Field. Please complete the form")
 }
-else if (addimage === undefined ){
-    alert("Missing Field. Please complete the form")
+else if (addimage === "" ){
+    alert("Missing Field. Please Upload Cnic image")
 }
-else if (addimage2 === undefined ){
-    alert("Missing Field. Please complete the form")
+else if (addimage2 === "" ){
+    alert("Missing Field. Please Upload Cnic image")
 }
 else
 {
@@ -318,7 +318,7 @@ else
   data.append('cnic_f', addimage);
   data.append('cnic_b', addimage2);
 
-// console.log(adddata.joining)
+// console.log(addimage)
 
 
       const url = AddUrl;

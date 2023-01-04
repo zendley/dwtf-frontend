@@ -31,6 +31,10 @@ export default function SetPerct() {
       getData();
     }, [rerender])
 
+    useEffect(() => {
+      //
+    }, [editperct])
+
     const getData = async (e) => {
 
         try {
@@ -78,8 +82,8 @@ export default function SetPerct() {
         }
         else if (((totalperct - curperct) + +editperct) > 100)
         {
-          setCurPerct(0)
           alert("Percentage Exceeded 100%")
+          // setCurPerct(0)
         }
         else
         {

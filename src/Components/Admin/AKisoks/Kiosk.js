@@ -92,11 +92,54 @@ const handleEditChange = e => {
 
 
 const handleAddChange = e => {
+  
 const { name, value } = e.target;
 setAddData(prevState => ({
   ...prevState,
   [name]: value
 }));
+};
+
+const handleAddComissionChange = e => {
+
+  if(100 < e.target.value)
+        {
+            const { name, value } = e.target;
+            setAddData(prevState => ({
+              ...prevState,
+              [name]: 100
+            }));
+        }
+        else
+        {
+            
+        const { name, value } = e.target;
+        setAddData(prevState => ({
+          ...prevState,
+          [name]: value
+        }));
+        }
+};
+
+const handleEditComissionChange = e => {
+
+  if(100 < e.target.value)
+        {
+            const { name, value } = e.target;
+            setEditData(prevState => ({
+              ...prevState,
+              [name]: 100
+            }));
+        }
+        else
+        {
+            
+        const { name, value } = e.target;
+        setEditData(prevState => ({
+          ...prevState,
+          [name]: value
+        }));
+        }
 };
 
 
@@ -120,9 +163,9 @@ else if (adddata.timing === undefined ){
 else if (adddata.llc === undefined ){
     alert("Missing Field. Please complete the form")
 }
-// else if (adddata.rent === undefined ){
-//     alert("Missing Field. Please complete the form")
-// }
+else if (adddata.rent === undefined || adddata.commission === undefined ){
+    alert("Missing Field. Please add comission or rent")
+}
 else
 {
 
@@ -438,12 +481,12 @@ if(loadermain === true)
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Comission</Form.Label>
+            <Form.Label>Comission %</Form.Label>
             <Form.Control
               value={adddata.commission}
               name="commission"
               type="number"
-              onChange={handleAddChange}
+              onChange={handleAddComissionChange}
             />
           </Form.Group>
           
@@ -536,7 +579,7 @@ if(loadermain === true)
               value={editdata.commission}
               name="commission"
               type="number"
-              onChange={handleEditChange}
+              onChange={handleEditComissionChange}
             />
           </Form.Group>
           

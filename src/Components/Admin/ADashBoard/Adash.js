@@ -454,7 +454,7 @@ export default function Adash() {
                 }
               }
               >
-                {maindata.bestSeller}
+                {maindata.bestSeller > 15 ? maindata.bestSeller.substring(0,15)+"..." : maindata.bestSeller}
               </p>
             </div>
 

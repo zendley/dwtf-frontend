@@ -61,11 +61,21 @@ export default function ATopBar() {
                 <img src={logo} alt="DWF" />
               {/* </span> */}
             </div>
-            <div className="topRight">
+            <div style={{
+              width: '100%',
+              justifyContent: 'space-between',
+            }} className="topRight">
               {/* <div className="topbarIconContainer">
                 1
                 <span className="topIconBadge">2</span>
               </div> */}
+              <h4 style={
+            {
+              margin: '0px',
+              marginLeft: '18px',
+              color: '#463b3b',
+            }
+          }>Super Admin</h4>
               <div className="topbarIconContainer">
                 <Link
                 onClick={()=>{ getNoti(); notiisopen === true ? setNotiIsOpen(false) : setNotiIsOpen(true);}}
@@ -179,7 +189,6 @@ export default function ATopBar() {
 
 
               </div> */}
-
 
         </div>
       )

@@ -61,6 +61,7 @@ export default function AddProd() {
     const [red, setRed] = useState([])
     const [isred, setIsRed] = useState()
     const [isSubmit, setIsSUBMIT] = useState()
+    const [submitbuttshow, setSubmitButtShow] = useState(false)
 
     const [inputFields, setInputFields] = useState([
         {flavour: '', quantity: ''},
@@ -244,6 +245,7 @@ export default function AddProd() {
         // console.log(dataaa)
 
         setEData(dataaa)
+        setSubmitButtShow(false);
         handleRemainingProd();
 
         
@@ -277,7 +279,8 @@ export default function AddProd() {
                     else
                     {   
                         // console.log(response.data)
-                        setRerender(!rerender); 
+                        setRerender(!rerender);
+                        setSubmitButtShow(true);
                         setLoaderMain(false);
                         
                     }
@@ -322,6 +325,7 @@ export default function AddProd() {
                     
                     setRerender(!rerender);
                     setLoaderMain(false);
+                    alert(response.data.message)
                 }
             })
             alert("Submitted successfully!")
@@ -622,9 +626,18 @@ export default function AddProd() {
             
             } 
 
+            {
+            submitbuttshow === true ?
+            
             <button onClick={()=>{HandleSubmitButt();} } className="pBut">
                             Submit
             </button>
+            
+            :
+            
+            ""
+
+            }
 
           </div> 
           : 

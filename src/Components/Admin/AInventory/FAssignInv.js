@@ -90,9 +90,13 @@ export default function FAssignInv() {
     }
 
     const handleSubmit = async () => {
-        if(inputFields[0].item === "" || inputFields[0].quantity === "" || selected === 'Select Branch')
+        if(inputFields[0].item === "" || inputFields[0].quantity === "")
         {
             alert("All Fields are Required")
+        }
+        else if(selected === 'Select Branch')
+        {
+          alert("Kiosk Is Required")
         }
         else
         {

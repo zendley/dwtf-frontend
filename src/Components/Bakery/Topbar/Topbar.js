@@ -11,16 +11,15 @@ export default function Topbar() {
             <img src={logo} alt="DWF" />
           {/* </span> */}
         </div>
-        {/* <div className="topRight">
-          <div className="topbarIconContainer">
-            1
-            <span className="topIconBadge">2</span>
-          </div>
-          <div className="topbarIconContainer">
-            Staff
-          </div>
-          <img src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="topAvatar" />
-        </div> */}
+        <div className="topRight">
+          <h4 style={
+            {
+              margin: '0px',
+              marginLeft: '18px',
+              color: '#463b3b',
+            }
+          }>Bakery</h4>
+        </div>
       </div>
     </div>
   )
