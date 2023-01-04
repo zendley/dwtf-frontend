@@ -6,6 +6,7 @@ import cellEditFactory from "react-bootstrap-table2-editor";
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit';
 // import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
 
+import { getDatabase, ref, set } from "firebase/database";
 
 import axios from '../../../Api/Axios';
 import * as axiosURL from '../../../Api/AxiosUrls';
@@ -326,11 +327,24 @@ export default function AddProd() {
                     setRerender(!rerender);
                     setLoaderMain(false);
                     alert(response.data.message)
+
+                    writeUserData();
                 }
             })
-            alert("Submitted successfully!")
         }
     }
+    }
+
+    function writeUserData() {
+        var date1 = new Date().getHours();
+        var date2 = new Date().getMinutes();
+        var date3 = new Date().getSeconds();
+        var datet = date.concat(date1, date2, date3);
+        console.log(datet);
+        const db = getDatabase();
+        set(ref(db, 'notification/' + datet), {
+            'date': datet,
+        });
     }
 
 

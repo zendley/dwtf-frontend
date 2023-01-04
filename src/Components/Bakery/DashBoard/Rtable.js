@@ -7,6 +7,9 @@ import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit/dist/
 // import 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min.css';
 
 
+import { getDatabase, ref, set } from "firebase/database";
+
+
 import axios from '../../../Api/Axios';
 import * as axiosURL from '../../../Api/AxiosUrls';
 
@@ -347,11 +350,27 @@ export default function Rtable() {
                     setRerender(!rerender);
                     setLoaderMain(false);
                     alert(response.data.message)
+
+                    writeUserData();
+                      
                 }
             })
         }
     }
     }
+
+    
+    function writeUserData() {
+        var date1 = new Date().getHours();
+        var date2 = new Date().getMinutes();
+        var date3 = new Date().getSeconds();
+        var datet = date.concat(date1, date2, date3);
+        console.log(datet);
+        const db = getDatabase();
+        set(ref(db, 'notification/' + datet), {
+            'date': datet,
+        });
+      }
 
 
     const handleBeforeSave = () => {
@@ -586,11 +605,11 @@ export default function Rtable() {
                     }
                 </ToolkitProvider>
                         
-                        <button style={{width:'140px'}} onClick={()=>{setMovementIsOpen(true);} } className="pBut">
+                        {/* <button style={{width:'140px'}} onClick={()=>{setMovementIsOpen(true);} } className="pBut">
                           <span>
                             <img style={{height: '10px'}} src={addmovementimg} alt="" />
                             </span>  Add Movement
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             <div  className="table">

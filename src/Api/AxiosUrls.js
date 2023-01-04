@@ -28,6 +28,8 @@ export const Clear_perct = 'bakery/percentage/clear';
 
 export const bakery_Kiosk = 'bakery/kiosk/get';
 
+export const bakery_movement_Kiosk = 'bakery/kiosk/movement/get';
+
 export const History = 'bakery/history';
 
 export const Notifications = '/bakery/notifications/get';
