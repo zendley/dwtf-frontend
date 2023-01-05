@@ -13,7 +13,7 @@ const firebaseConfig = {
     databaseURL: "https://dwtf-4e314-default-rtdb.asia-southeast1.firebasedatabase.app/"
   };
 
-console.log('*** Firebase Config ***', firebaseConfig)
+// console.log('*** Firebase Config ***', firebaseConfig)
 
 const firebaseApp = initializeApp(firebaseConfig);
 const messaging = getMessaging(firebaseApp);
