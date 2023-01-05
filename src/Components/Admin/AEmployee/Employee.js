@@ -50,6 +50,7 @@ export default function Employee() {
   }, [rerender])
 
 
+
   
 
 
@@ -212,6 +213,8 @@ else if (editdata.branch_name === undefined ){
               // console.log(response.data)
               setEditIsOpen(false);
               setEditData([]);
+              setEditImage('');
+              setEditImage2('');
               setRerender(!rerender);
             }
         })
@@ -341,6 +344,8 @@ else
             // console.log(response.data)
             setAddtIsOpen(false);
             setAddData([]);
+            setAddImage('');
+            setAddImage2('');
             setRerender(!rerender);
           }
       })
