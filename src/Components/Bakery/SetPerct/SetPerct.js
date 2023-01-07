@@ -255,7 +255,7 @@ export default function SetPerct() {
                 </Modal.Body>
                 <Modal.Footer>
                   <Button variant="secondary" onClick={()=>{setEditIsOpen(false)}}>Close</Button>
-                  <Button variant="success" to="/set_percentage" onClick={()=>{EditApi(table.length !== 0 ? table[editindex !== '' ? editindex : 0].id : "")}} >Update</Button>
+                  <Button style={{backgroundColor: 'rgb(255, 138, 165)', border: 'none'}}to="/set_percentage" onClick={()=>{EditApi(table.length !== 0 ? table[editindex !== '' ? editindex : 0].id : "")}} >Update</Button>
                 </Modal.Footer>
               </Modal>
             

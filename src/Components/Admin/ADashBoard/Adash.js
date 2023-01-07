@@ -53,7 +53,7 @@ export default function Adash() {
 
           setMainData(res);
 
-        // console.log(res);
+        console.log(res);
         setLoaderMain(false);
 
 
@@ -71,7 +71,7 @@ export default function Adash() {
       //   setErrMsg('Login Failed');
       // }
 
-      // console.log(err);
+      console.log(err);
       
     }
 

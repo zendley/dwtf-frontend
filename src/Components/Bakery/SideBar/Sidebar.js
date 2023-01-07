@@ -81,7 +81,7 @@ export default function Sidebar(props) {
                 <span className="ico">
                     <img className="sico" src={logout} alt="" />
                 </span>
-              Logout
+              Log out
             </li>
             {/* </Link> */}
            

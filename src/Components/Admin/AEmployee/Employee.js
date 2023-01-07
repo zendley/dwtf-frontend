@@ -277,31 +277,34 @@ const AddApi = () => {
   
     
   if (adddata.name === undefined){
-    alert("Missing Field. Please complete the form")
+    alert("Missing Field. Please complete the form 1")
 }
-else if (adddata.address === undefined ){
-    alert("Missing Field. Please complete the form")
-}
+else if (adddata.email === undefined ){
+    alert("Missing Field. Please complete the form 2")
+  }
+  else if (adddata.password === undefined ){
+      alert("Missing Field. Please complete the form 3")
+    }
+    else if (adddata.branch_name === 'Select Kiosk' ){
+        alert("Missing Field. Please complete the form 4")
+    }
+    else if (adddata.address === undefined ){
+        alert("Missing Field. Please complete the form 5")
+    }
+  else if (adddata.phone === undefined || adddata.phone === "" ){
+      alert("Missing Field. Please complete the form 6")
+  }
 else if (adddata.salary === undefined ){
-    alert("Missing Field. Please complete the form")
-}
-else if (adddata.phone === undefined ){
-    alert("Missing Field. Please complete the form")
-}
-else if (adddata.salary === undefined ){
-    alert("Missing Field. Please complete the form")
+    alert("Missing Field. Please complete the form 7")
 }
 else if (adddata.joining === undefined ){
-    alert("Missing Field. Please complete the form")
-}
-else if (adddata.branch_name === undefined ){
-    alert("Missing Field. Please complete the form")
+    alert("Missing Field. Please complete the form 8")
 }
 else if (addimage === "" ){
-    alert("Missing Field. Please Upload Cnic image")
+    alert("Missing Field. Please Upload Cnic image 9")
 }
 else if (addimage2 === "" ){
-    alert("Missing Field. Please Upload Cnic image")
+    alert("Missing Field. Please Upload Cnic image 10") 
 }
 else
 {
@@ -313,11 +316,11 @@ else
   data.append('name', adddata.name);
   data.append('email', adddata.email);
   data.append('password', adddata.password);
-  data.append('address', adddata.address);
-  data.append('salary', adddata.salary);
-  data.append('phone', adddata.phone);
-  data.append('joining_date', adddata.joining);
   data.append('branch_name', adddata.branch_name);
+  data.append('address', adddata.address);
+  data.append('phone', adddata.phone);
+  data.append('salary', adddata.salary);
+  data.append('joining_date', adddata.joining);
   data.append('cnic_f', addimage);
   data.append('cnic_b', addimage2);
 
