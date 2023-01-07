@@ -163,7 +163,7 @@ else if (adddata.timing === undefined ){
 else if (adddata.llc === undefined ){
     alert("Missing Field. Please complete the form")
 }
-else if (adddata.rent === undefined || adddata.commission === undefined ){
+else if (adddata.rent === undefined && adddata.commission !== undefined){
     alert("Missing Field. Please add comission or rent")
 }
 else
@@ -246,9 +246,9 @@ else if (editdata.timing === undefined ){
 else if (editdata.llc === undefined ){
     alert("Missing Field. Please complete the form")
 }
-// else if (editdata.rent === undefined ){
-//     alert("Missing Field. Please complete the form")
-// }
+else if (adddata.rent === undefined && adddata.commission !== undefined){
+  alert("Missing Field. Please add comission or rent")
+}
 else
 {
 
@@ -556,7 +556,7 @@ if(loadermain === true)
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Landlord Contact No</Form.Label>
             <Form.Control
-              type="text"
+              type="number"
               value={editdata.llc}
               name="llc"
               onChange={handleEditChange}

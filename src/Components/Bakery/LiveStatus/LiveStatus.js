@@ -236,6 +236,16 @@ export default function LiveStatus() {
 
     };
 
+    const rowStyle2 = (row, rowIndex) => {
+        const style = {};
+
+        style.textAlign = "center";
+        style.verticalAlign = "middle"
+
+        
+        return style;
+      };
+
     if(loadermain === true)
     {
         return(
@@ -312,7 +322,7 @@ export default function LiveStatus() {
                         striped
                         hover
                         condensed
-                        // rowStyle={ rowStyle2 }
+                        rowStyle={ rowStyle2 }
                         
                         
                         />

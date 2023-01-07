@@ -277,34 +277,34 @@ const AddApi = () => {
   
     
   if (adddata.name === undefined){
-    alert("Missing Field. Please complete the form 1")
+    alert("Missing Field. Please complete the form")
 }
 else if (adddata.email === undefined ){
-    alert("Missing Field. Please complete the form 2")
+    alert("Missing Field. Please complete the form")
   }
   else if (adddata.password === undefined ){
-      alert("Missing Field. Please complete the form 3")
+      alert("Missing Field. Please complete the form")
     }
     else if (adddata.branch_name === 'Select Kiosk' ){
-        alert("Missing Field. Please complete the form 4")
+        alert("Missing Field. Please complete the form")
     }
     else if (adddata.address === undefined ){
-        alert("Missing Field. Please complete the form 5")
+        alert("Missing Field. Please complete the form")
     }
   else if (adddata.phone === undefined || adddata.phone === "" ){
-      alert("Missing Field. Please complete the form 6")
+      alert("Missing Field. Please complete the form")
   }
 else if (adddata.salary === undefined ){
-    alert("Missing Field. Please complete the form 7")
+    alert("Missing Field. Please complete the form")
 }
 else if (adddata.joining === undefined ){
-    alert("Missing Field. Please complete the form 8")
+    alert("Missing Field. Please complete the form")
 }
 else if (addimage === "" ){
-    alert("Missing Field. Please Upload Cnic image 9")
+    alert("Missing Field. Please Upload Cnic image")
 }
 else if (addimage2 === "" ){
-    alert("Missing Field. Please Upload Cnic image 10") 
+    alert("Missing Field. Please Upload Cnic image") 
 }
 else
 {
@@ -511,7 +511,7 @@ if(loadermain === true)
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Kiosk</Form.Label>
+            <Form.Label>Assign Kiosk</Form.Label>
 
             <select className='form-control' name="branch_name" id="cars"  value={editdata.branch_name}
               onChange={handleEditChange}
@@ -641,7 +641,7 @@ if(loadermain === true)
 
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Kiosk</Form.Label>
+            <Form.Label>Assign Kiosk</Form.Label>
 
             <select className='form-control' name="branch_name" id="cars"  value={adddata.branch_name}
               onChange={handleAddChange}

@@ -508,6 +508,9 @@ export default function Rtable() {
               }
         }
 
+        style.textAlign = "center";
+        style.verticalAlign = "middle"
+
         
         return style;
       };

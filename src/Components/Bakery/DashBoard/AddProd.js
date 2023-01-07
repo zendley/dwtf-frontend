@@ -483,6 +483,9 @@ export default function AddProd() {
               }
         }
 
+        style.textAlign = "center";
+        style.verticalAlign = "middle"
+
         
         return style;
       };
