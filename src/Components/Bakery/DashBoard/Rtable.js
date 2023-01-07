@@ -578,11 +578,13 @@ export default function Rtable() {
                 <div className="a">
                     <h2>Remaining = {remainingProd}</h2>
                     <div className="buttons">
-
-                    <button style={{width:'130px'}} onClick={() => {if (window.confirm(`Are you sure you wish to Clear today's production?`)) handleClear()} } className="pBut">
-                  Clear
-                </button>
-                        
+            { isSubmit === 0 ? 
+            <button style={{width:'130px'}} onClick={() => {if (window.confirm(`Are you sure you wish to Clear today's production?`)) handleClear()} } className="pBut">
+          Clear
+        </button>
+        :        
+         ""   
+        }
 
                 <ToolkitProvider
                     keyField="id"
