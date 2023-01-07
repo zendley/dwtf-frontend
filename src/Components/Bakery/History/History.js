@@ -8,11 +8,12 @@ import loader from '../../../Assets/Dashboard_SVGs/loader.gif'
 
 import DatePicker from "react-datepicker";
 
-import { DownloadTableExcel } from 'react-export-table-to-excel';
+// import { DownloadTableExcel } from 'react-export-table-to-excel';
 
 import "react-datepicker/dist/react-datepicker.css";
 
 import nodatafound from '../../../Assets/Dashboard_SVGs/NoContentFound.svg'
+import { CSVLink } from "react-csv";
 
 var HistoryUrl = axiosURL.History;
 
@@ -83,6 +84,12 @@ export default function History() {
             })
 
     }
+
+    const csvReport = {
+      data: table,
+      headers: header,
+      filename: 'History.csv'
+    };
 
 
     if(loadermain === true)
@@ -222,7 +229,7 @@ export default function History() {
                     <div 
                     style={{textAlign: 'center'}}
                     >
-                    <DownloadTableExcel
+                    {/* <DownloadTableExcel
                     filename={FileDate}
                     sheet="Production"
                     currentTableRef={tableRef.current}
@@ -230,7 +237,8 @@ export default function History() {
 
                    <button style={{ width:'120px'}} className="pBut"> Download </button>
 
-                </DownloadTableExcel>
+                </DownloadTableExcel> */}
+                <CSVLink style={{padding: '6.5px 35px',}} {...csvReport} className="b1">Download</CSVLink>
                     </div>
 
 
