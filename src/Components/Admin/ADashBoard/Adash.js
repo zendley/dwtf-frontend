@@ -189,7 +189,7 @@ export default function Adash() {
         <div className="col-3">
           <div className="dashcard1">
             <div style={{justifyContent: 'space-between',}} className="d-flex">
-              <p>Top Selling Items .</p>
+              <p>Top Selling Items</p>
               <span><img src={micon} alt="" /></span>
             </div>
             <div>
@@ -226,7 +226,7 @@ export default function Adash() {
         <div className="col-3">
           <div className="dashcard1">
             <div style={{justifyContent: 'space-between',}} className="d-flex">
-              <p>Total Daily Sale .</p>
+              <p>Total Daily Sale</p>
               <span><img src={micon} alt="" /></span>
             </div>
             <div>
@@ -263,7 +263,7 @@ export default function Adash() {
         <div className="col-3">
           <div className="dashcard1">
             <div style={{justifyContent: 'space-between',}} className="d-flex">
-              <p>Total Weekly Sale .</p>
+              <p>Total Weekly Sale</p>
               <span><img src={micon} alt="" /></span>
             </div>
             <div>
@@ -300,7 +300,7 @@ export default function Adash() {
         <div className="col-3">
           <div className="dashcard1">
             <div style={{justifyContent: 'space-between',}} className="d-flex">
-              <p>Total Month Sale .</p>
+              <p>Total Month Sale</p>
               <span><img src={micon} alt="" /></span>
             </div>
             <div>
@@ -559,7 +559,7 @@ export default function Adash() {
         <div className="col-8">
           <div className="dashcard3">
             <p style={{  fontWeight:'500', textAlign:'center'}}>
-            Overall Monthly Sale
+            Monthly Sales Chart
             </p>
             <div>
         <BarChart width={740} height={250} data={data4}>

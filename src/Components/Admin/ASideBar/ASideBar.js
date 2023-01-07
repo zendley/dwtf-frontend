@@ -65,7 +65,7 @@ export default function ASideBar(props) {
                     <span className="ico">
                         <img className="sico" src={kiosk} alt="" />
                     </span>
-                  Kiosk
+                  Kiosks
                 </li>
                 </NavLink>
                 <NavLink to="/employee" className="link">
@@ -73,7 +73,7 @@ export default function ASideBar(props) {
                     <span className="ico">
                         <img className="sico" src={Employee} alt="" />
                     </span>
-                  Employee
+                  Employees
                 </li>
                 </NavLink>
                 <NavLink to="/attendance" className="link">
@@ -89,7 +89,7 @@ export default function ASideBar(props) {
                     <span className="ico">
                         <img className="sico" src={Sale_Channel} alt="" />
                     </span>
-                  Sale Channel 
+                  Sales Channel 
                   <span className="arrow"><img src={channel ? open : close} alt="" /></span>
                 </li>
                 {/* </Link> */}

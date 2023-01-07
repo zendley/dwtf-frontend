@@ -115,7 +115,7 @@ export default function Inventory() {
 
         <div className="top">
           <h4 style={{color: '#463B3B'}}>
-          Accessories Management
+          View Assigned Accessories
           </h4>
           <div className="buttons">
           

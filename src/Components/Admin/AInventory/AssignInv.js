@@ -209,7 +209,7 @@ export default function AssignInv() {
         <select className='form-control' name="cars" id="cars" value={selected}
          onChange={handleLocChange}
          >
-             <option disabled value='Select Branch' >Kiosk</option>
+             <option disabled value='Select Branch' >Select Kiosk</option>
           {list.map((tabl, index)=>{
               return(
             <option key={tabl.id} value={tabl.location} >{tabl.location}</option>

@@ -168,6 +168,7 @@ export default function History() {
                         className="form-control "
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
+                        maxDate={new Date(startDate)}
                         />
 
                         {

@@ -336,7 +336,7 @@ export default function LiveStatus() {
         <Modal
                 show={movementisopen}
                 onHide={()=>{setMovementIsOpen(false)}}
-                size="lg"
+                size="s"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 >
@@ -394,7 +394,7 @@ export default function LiveStatus() {
                            
                                          <p style={{
                                             marginBottom: '0px',
-                                         }} key={index}>{kis.flavour_name} ({kis.production - kis.sold})</p>
+                                         }} key={index}>{kis.flavour_name} (Qty: {kis.production - kis.sold})</p>
                         </div>
                         <div className="col-6">
                             <Form.Group  controlId="exampleForm.ControlInput1">
@@ -402,7 +402,7 @@ export default function LiveStatus() {
                                 value={flavamt[kis.flavour_name]}
                                 name={kis.flavour_name}
                                 type="number"
-                                placeholder="Enter amount or leave empty for no movement"
+                                placeholder="Enter required quantity"
                                 onChange={event =>{handleFormChange(event, kis.production - kis.sold)}}
                             />
                             </Form.Group>
