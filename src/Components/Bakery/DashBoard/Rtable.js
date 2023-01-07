@@ -653,7 +653,12 @@ export default function Rtable() {
           isSubmit === 0 ?
 
           <div className="float-end">
-          {butt === 1 ? 
+            {submitbuttshow === true ? " " 
+            
+            :
+
+
+            butt === 1 ? 
             <button onClick={()=>{HandleSaveButt();} } className="pBut">
                             Update
             </button>
@@ -661,8 +666,11 @@ export default function Rtable() {
             <button onClick={()=>{HandleSaveButt();} } className="pBut">
                             Assign
             </button>
+
+        }
+          
             
-            } 
+            
 
             {submitbuttshow === true ?
             
