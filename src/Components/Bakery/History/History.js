@@ -227,7 +227,7 @@ export default function History() {
                     </table>
 
                     <div 
-                    style={{textAlign: 'center'}}
+                    style={{textAlign: 'center', marginTop: '12px'}}
                     >
                     {/* <DownloadTableExcel
                     filename={FileDate}
