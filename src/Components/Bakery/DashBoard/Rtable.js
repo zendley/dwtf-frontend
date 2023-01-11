@@ -154,6 +154,7 @@ export default function Rtable() {
     var rp = 0;
 
     const getData = async () => {
+        setLoaderMain(true)
         rp = remainingProd;
         // console.log(rp);
        await axios.post(BakeryData,
@@ -653,6 +654,8 @@ export default function Rtable() {
             >
                 <div className="col-2">
                     <Link onClick={()=>handleproduction_no('os')}>
+
+                    {production_no === 'os' ? 
                         <div style={
                             {
                                 display: 'flex',
@@ -666,10 +669,36 @@ export default function Rtable() {
                                 padding: '10px',
                                 borderRadius: '5px',
                                 marginBottom: '5px',
+                                border: '3px solid pink',
                             }
+                            
                         }>
                             overall production
                         </div>
+                    :
+                    <div style={
+                        {
+                            display: 'flex',
+                            width: '100%',
+                            backgroundColor: 'rgb(70, 59, 59)',
+                            height: '45px',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: 'white',
+                            textAlign: 'center',
+                            padding: '10px',
+                            borderRadius: '5px',
+                            marginBottom: '5px',
+                        }
+                        
+                    }>
+                        overall production
+                    </div>
+                    }
+
+
+
+                        
                     </Link>
                 </div>
 
@@ -677,6 +706,29 @@ export default function Rtable() {
                         {[...Array(productions)].map((x, i) =>
                             <div key={i} className="col-2">
                                 <Link onClick={()=>handleproduction_no(i+1)}>
+                                {production_no === i+1 ? 
+
+                                    <div style={
+                                        {
+                                            display: 'flex',
+                                            width: '100%',
+                                            backgroundColor: '#FF8AA5',
+                                            height: '45px',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            color: 'white',
+                                            textAlign: 'center',
+                                            padding: '10px',
+                                            borderRadius: '5px',
+                                            marginBottom: '5px',
+                                            border: '2px solid rgb(70, 59, 59)',
+                                        }
+                                    }>
+                                        production {i+1}
+                                    </div>
+
+                                    :
+
                                     <div style={
                                         {
                                             display: 'flex',
@@ -694,6 +746,7 @@ export default function Rtable() {
                                     }>
                                         production {i+1}
                                     </div>
+                                }
                                 </Link>
                         </div>
                         )}

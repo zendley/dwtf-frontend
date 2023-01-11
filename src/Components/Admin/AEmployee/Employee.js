@@ -134,6 +134,7 @@ export default function Employee() {
       setEditData(prevState => ({
         ...prevState,
         name: table.length !== 0 ? table[index].name : "",
+        email: table.length !== 0 ? table[index].email : "",
         address: table.length !== 0 ? table[index].address : "",
         cnic: table.length !== 0 ? table[index].cnic : "",
         phone: table.length !== 0 ? table[index].phone : "",
@@ -443,6 +444,7 @@ if(loadermain === true)
   <thead>
     <tr>
       <th>Employee Name</th>
+      <th>Employee</th>
       <th>Address</th>
       <th>CNIC</th>
       <th>Phone #</th>
@@ -507,6 +509,17 @@ if(loadermain === true)
               name="name"
               type="text"
               onChange={handleEditChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              value={editdata.email}
+              name="name"
+              type="text"
+              onChange={handleEditChange}
+              disabled
             />
           </Form.Group>
 
