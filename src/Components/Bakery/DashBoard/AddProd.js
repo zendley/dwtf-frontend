@@ -26,7 +26,7 @@ var BakeryTable = axiosURL.Bakery_Table;
 var AddMovement = axiosURL.Add_Movement;
 var getkiosk = axiosURL.bakery_Kiosk;
 var Submit = axiosURL.Submit_Add_Prod;
-var Clear_Url = axiosURL.clear_production;
+var Clear_Url = axiosURL.clear_add_production;
 var flavs_Url = axiosURL.flav_name;
 
 
@@ -50,6 +50,7 @@ export default function AddProd() {
     const [edata, setEData] = useState([]);
     const [rerender, setRerender] = useState(false);
     const [rerender2, setRerender2] = useState(false);
+    const [rerender3, setRerender3] = useState(false);
     const [loadermain, setLoaderMain] = useState(true)
     const [skiosks, setkiosk] = useState([])
     const [movementisopen, setMovementIsOpen] = useState(false)
@@ -96,34 +97,34 @@ export default function AddProd() {
 
     
 
-    useEffect(()=>{
-        const getData = setTimeout(() => {
-            const url = EditUrl
-            axios.post(url, {
-                totalprod: totalProd,
-            },
-            {
-                headers: {
-                  'Authorization': token,
-                }
-            }
-            )
-            .then(response=>{
-                if(response.status !== 200)
-                {
-                    alert("Error", response.status)
-                }
-                else
-                {   
-                    // console.log('Done')
-                    // setRerender(!rerender); 
-                }
-            })
-        }, 2000)
+    // useEffect(()=>{
+    //     const getData = setTimeout(() => {
+    //         const url = EditUrl
+    //         axios.post(url, {
+    //             totalprod: totalProd,
+    //         },
+    //         {
+    //             headers: {
+    //               'Authorization': token,
+    //             }
+    //         }
+    //         )
+    //         .then(response=>{
+    //             if(response.status !== 200)
+    //             {
+    //                 alert("Error", response.status)
+    //             }
+    //             else
+    //             {   
+    //                 // console.log('Done')
+    //                 // setRerender(!rerender); 
+    //             }
+    //         })
+    //     }, 2000)
 
-        return () => clearTimeout(getData)
+    //     return () => clearTimeout(getData)
 
-    }, [totalProd])
+    // }, [rerender3])
 
     var rp = 0;
 
@@ -265,6 +266,7 @@ export default function AddProd() {
             const url = BakeryDataEdit
                 axios.post(url, {
                     data: edata,
+                    totalprod: totalProd,
                 },
                 {
                     headers: {
@@ -305,6 +307,8 @@ export default function AddProd() {
         else
         {
             setLoaderMain(true);
+
+            
 
             const url = Submit;
             axios.get(url,
@@ -359,6 +363,7 @@ export default function AddProd() {
 
     const handleTotalChange = async (event) => {
         setTotalProd(event.target.value);
+        setRerender3(!rerender); 
 
 
         handleRemainingProd();
@@ -558,9 +563,13 @@ export default function AddProd() {
                     <h2>Remaining = {remainingProd}</h2>
                     <div className="buttons">
 
-                    {/* <button style={{width:'130px'}} onClick={handleClear } className="pBut">
-                  Clear
-                </button> */}
+                    { isSubmit === 0 ? 
+                        <button style={{width:'130px'}} onClick={() => {if (window.confirm(`Are you sure you wish to Clear today's production?`)) handleClear()} } className="pBut">
+                            Clear
+                        </button>
+                    :        
+                    ""   
+                    }
                         
 
                 <ToolkitProvider
@@ -632,7 +641,12 @@ export default function AddProd() {
           isSubmit === 0 ?
 
           <div className="float-end">
-          {butt === 1 ? 
+          {submitbuttshow === true ? " " 
+            
+            :
+
+
+            butt === 1 ? 
             <button onClick={()=>{HandleSaveButt();} } className="pBut">
                             Update
             </button>
@@ -640,11 +654,13 @@ export default function AddProd() {
             <button onClick={()=>{HandleSaveButt();} } className="pBut">
                             Assign
             </button>
-            
-            } 
 
-            {
-            submitbuttshow === true ?
+        }
+          
+            
+            
+
+            {submitbuttshow === true ?
             
             <button onClick={()=>{HandleSubmitButt();} } className="pBut">
                             Submit

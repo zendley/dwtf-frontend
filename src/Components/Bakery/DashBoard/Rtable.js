@@ -52,6 +52,7 @@ export default function Rtable() {
     const [edata, setEData] = useState([]);
     const [rerender, setRerender] = useState(false);
     const [rerender2, setRerender2] = useState(false);
+    const [rerender3, setRerender3] = useState(false);
     const [loadermain, setLoaderMain] = useState(true)
     const [skiosks, setkiosk] = useState([])
     const [movementisopen, setMovementIsOpen] = useState(false)
@@ -65,6 +66,8 @@ export default function Rtable() {
     const [isred, setIsRed] = useState()
     const [isSubmit, setIsSUBMIT] = useState()
     const [submitbuttshow, setSubmitButtShow] = useState(false)
+    const [productions, setProductions] = useState('')
+    const [production_no, setProduction_no] = useState('os')
 
     const [inputFields, setInputFields] = useState([
         {flavour: '', quantity: ''},
@@ -119,41 +122,44 @@ export default function Rtable() {
 
     
 
-    useEffect(()=>{
-        const getData = setTimeout(() => {
-            const url = EditUrl
-            axios.post(url, {
-                totalprod: totalProd,
-            },
-            {
-                headers: {
-                  'Authorization': token,
-                }
-            }
-            )
-            .then(response=>{
-                if(response.status !== 200)
-                {
-                    alert("Error", response.status)
-                }
-                else
-                {   
-                    // console.log('Done')
-                    // setRerender(!rerender); 
-                }
-            })
-        }, 2000)
+    // useEffect(()=>{
+    //     const getData = setTimeout(() => {
+    //         const url = EditUrl
+    //         axios.post(url, {
+    //             totalprod: totalProd,
+    //         },
+    //         {
+    //             headers: {
+    //               'Authorization': token,
+    //             }
+    //         }
+    //         )
+    //         .then(response=>{
+    //             if(response.status !== 200)
+    //             {
+    //                 alert("Error", response.status)
+    //             }
+    //             else
+    //             {   
+    //                 // console.log('Done')
+    //                 // setRerender(!rerender); 
+    //             }
+    //         })
+    //     }, 2000)
 
-        return () => clearTimeout(getData)
+    //     return () => clearTimeout(getData)
 
-    }, [totalProd])
+    // }, [rerender3])
 
     var rp = 0;
 
     const getData = async () => {
         rp = remainingProd;
         // console.log(rp);
-       await axios(BakeryData,
+       await axios.post(BakeryData,
+            {
+                production_no: production_no
+            },
             {
                 headers: {
                   'Authorization': token,
@@ -168,6 +174,7 @@ export default function Rtable() {
             setRed(res.data.red);
             setIsRed(res.data.isRed);
             setIsSUBMIT(res.data.isSubmit);
+            setProductions(res.data.productions);
 
             console.log(res.data)
             
@@ -288,6 +295,7 @@ export default function Rtable() {
             const url = BakeryDataEdit
                 axios.post(url, {
                     data: edata,
+                    totalprod: totalProd,
                 },
                 {
                     headers: {
@@ -384,6 +392,7 @@ export default function Rtable() {
 
     const handleTotalChange = async (event) => {
         setTotalProd(event.target.value);
+        setRerender3(!rerender);
 
 
         handleRemainingProd();
@@ -546,7 +555,14 @@ export default function Rtable() {
       };
     
 
-    
+      const handleproduction_no = (val) => {
+      
+        setProduction_no(val);
+        console.log(val)
+        setRerender(!rerender);
+  
+  
+      };
 
 
     if(loadermain === true)
@@ -574,7 +590,15 @@ export default function Rtable() {
 
             <div className="px-3 py-3">
                 <div className="a">
-                    <h2>Total Production = <span><input onChange={handleTotalChange} value={totalProd} type="number" /></span></h2>
+                    <h2>Total Production = <span>
+                    { isSubmit === 0 ?
+                        <input onChange={handleTotalChange} value={totalProd} type="number" />
+                    
+                    :
+                    totalProd
+                    }
+                        
+                        </span></h2>
     
                     <h2>{date}</h2>
                 </div>
@@ -617,6 +641,69 @@ export default function Rtable() {
                         </button> */}
                     </div>
                 </div>
+
+
+            <div className="row"
+            style={
+                {
+                    marginTop: '15px',
+                    marginBottom: '15px',
+                }
+            }
+            >
+                <div className="col-2">
+                    <Link onClick={()=>handleproduction_no('os')}>
+                        <div style={
+                            {
+                                display: 'flex',
+                                width: '100%',
+                                backgroundColor: 'rgb(70, 59, 59)',
+                                height: '45px',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                color: 'white',
+                                textAlign: 'center',
+                                padding: '10px',
+                                borderRadius: '5px',
+                                marginBottom: '5px',
+                            }
+                        }>
+                            overall production
+                        </div>
+                    </Link>
+                </div>
+
+
+                        {[...Array(productions)].map((x, i) =>
+                            <div key={i} className="col-2">
+                                <Link onClick={()=>handleproduction_no(i+1)}>
+                                    <div style={
+                                        {
+                                            display: 'flex',
+                                            width: '100%',
+                                            backgroundColor: '#FF8AA5',
+                                            height: '45px',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            color: 'white',
+                                            textAlign: 'center',
+                                            padding: '10px',
+                                            borderRadius: '5px',
+                                            marginBottom: '5px',
+                                        }
+                                    }>
+                                        production {i+1}
+                                    </div>
+                                </Link>
+                        </div>
+                        )}
+                    
+
+                
+
+            </div>
+
+
             <div  className="table">
     
                 {columns.length === 0  ? 
@@ -628,7 +715,7 @@ export default function Rtable() {
                 
 
                 
-
+                    
 
 
                 

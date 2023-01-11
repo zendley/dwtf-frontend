@@ -15,6 +15,7 @@ export const Bakery_Data_Edit_Add_Prod = '/bakery/data/edit/add/prod';
 export const Bakery_Table = 'bakery/table';
 
 export const clear_production = 'bakery/table/clear';
+export const clear_add_production = '/bakery/table/clear/add/prod';
 
 export const flav_name = 'bakery/flav/quat';
 
@@ -90,3 +91,6 @@ export const SaleBaskyt = '/admin/salechannel/baskyt/get';
 export const SalePandaGo = '/admin/salechannel/pandago/get';
 export const SaleBykea = '/admin/salechannel/bykea/get';
 export const OverAll = '/admin/salechannel/overall/get';
+
+//settings
+export const ChangePass = '/admin/settings/change/pass';

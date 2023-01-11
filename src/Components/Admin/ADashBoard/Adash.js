@@ -230,7 +230,7 @@ export default function Adash() {
               <span><img src={micon} alt="" /></span>
             </div>
             <div>
-              <h5>Rs {maindata.Total_daily_sale}</h5>
+              <h5>Rs {maindata.Total_daily_sale.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h5>
             </div>
             <div style={
               {
@@ -267,7 +267,7 @@ export default function Adash() {
               <span><img src={micon} alt="" /></span>
             </div>
             <div>
-              <h5>Rs {maindata.Total_weekly_sale}</h5>
+              <h5>Rs {maindata.Total_weekly_sale.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h5>
             </div>
             <div style={
               {
@@ -304,7 +304,7 @@ export default function Adash() {
               <span><img src={micon} alt="" /></span>
             </div>
             <div>
-              <h5>Rs {maindata.Total_monthly_sale}</h5>
+              <h5>Rs {maindata.Total_monthly_sale.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h5>
             </div>
             <div style={
               {
@@ -479,7 +479,7 @@ export default function Adash() {
 
             <div>
             <p style={{fontSize: '20px', margin:'0px', padding:'0px', fontWeight:'500'}}>
-                  Rs {maindata.bestSeller_total}
+                  Rs {maindata.bestSeller_total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </p>  
                 <p style={{fontSize: '16px', margin:'0px', padding:'0px'}}>
                   Sales this week  
