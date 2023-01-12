@@ -444,7 +444,6 @@ if(loadermain === true)
   <thead>
     <tr>
       <th>Employee Name</th>
-      <th>Employee</th>
       <th>Address</th>
       <th>CNIC</th>
       <th>Phone #</th>
