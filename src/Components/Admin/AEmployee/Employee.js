@@ -348,28 +348,27 @@ else
         }
       )
       .then(response=>{
-          if(response.status === 201)
-          {
-            
-              // console.log(response.data)
-            setAddtIsOpen(false);
-            setAddData([]);
-            setAddImage('');
-            setAddImage2('');
-            setRerender(!rerender);
-            alert(response.data.message)
-          }
           if(response.status === 200)
           {
             // console.log(response.status)
               alert(response.data.message)
               setLoaderMain(false);
           }
-          else
-          {   
+          else if(response.status !== 201)
+          {
+            alert("Error", response.status)
+            setLoaderMain(false);
+              // console.log(response.data)
+            }
+            else
+            {   
+            setAddtIsOpen(false);
+            setAddData([]);
+            setAddImage('');
+            setAddImage2('');
+            setRerender(!rerender);
+            alert(response.data.message)
             // console.log(response.status)
-              alert("Error", response.status)
-              setLoaderMain(false);
           }
       })
   }
