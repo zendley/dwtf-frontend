@@ -30,6 +30,7 @@ var getkiosk = axiosURL.bakery_Kiosk;
 var Submit = axiosURL.Submit;
 var Clear_Url = axiosURL.clear_production;
 var flavs_Url = axiosURL.flav_name;
+var branch_Url = axiosURL.branch_name;
 
 
 var tok = localStorage.getItem('token')
@@ -360,26 +361,62 @@ export default function Rtable() {
                     setLoaderMain(false);
                     alert(response.data.message)
 
-                    writeUserData();
+                    // writeUserData();
+
+                   
                       
                 }
             })
+
+
+            const url2 = branch_Url;
+            axios.get(url2,
+            {
+                headers: {
+                  'Authorization': token,
+                }
+            }
+            )
+            .then(response=>{
+                if(response.status !== 200)
+                {
+                    alert("Error", response.status)
+                }
+                else
+                {   
+                    var list = response.data;
+                    console.log(list.length)
+
+
+                    // for(var i = 0 ; i <= list.length; i++)
+                    // {
+                        writeUserData(list);
+                    // }                   
+                      
+                }
+            })
+
+
         }
     }
     }
 
+
     
-    function writeUserData() {
+    function writeUserData(list) {
         var date1 = new Date().getHours();
         var date2 = new Date().getMinutes();
         var date3 = new Date().getSeconds();
         var datet = date.concat(date1, date2, date3);
+        var list_cnt = list.length;
         console.log(datet);
         const db = getDatabase();
         set(ref(db, 'notification/' + datet), {
             'date': datet,
+            'count': list_cnt,
+            'branches': list,
         });
-      }
+    }
 
 
     const handleBeforeSave = () => {

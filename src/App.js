@@ -46,6 +46,7 @@ import AddProd from "./Components/Bakery/DashBoard/AddProd";
 
 import { getFirebaseToken, onForegroundMessage} from './firebase';
 import { getDatabase, ref, set } from "firebase/database";
+import RequestableAcc from "./Components/Admin/AInventory/RequestableAcc";
 
 const db = getDatabase();
 
@@ -170,6 +171,7 @@ function App() {
                   <Route path="/inventory/fixed" element = {<Finv />}></Route>
                   <Route path="/inventory/fixed/assign" element = {<FAssignInv />}></Route>
                   <Route path="/inventory" element = {<Inventory />}></Route>
+                  <Route path="/inventory/requestable" element = {<RequestableAcc />}></Route>
                   <Route path="/inventory/Assign" element = {<AssignInv />}></Route>
                   <Route path="/inventory/requested" element = {<AccessReq />}></Route>
                   <Route path="/products" element = {<Products />}></Route>

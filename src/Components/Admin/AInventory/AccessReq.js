@@ -41,7 +41,7 @@ export default function AccessReq() {
 
           var res = response.data;
 
-        //   console.log(res);
+          console.log(res);
 
           setList(res);
           setLoaderMain(false);
@@ -211,10 +211,17 @@ export default function AccessReq() {
                                   }
                               }>
                               {/* {tabl.Date} */}
-                              Gloves ({list[index].Data.gloves}),
+
+                              {list.items.map((tabl, index)=>{
+                                return(
+                                    <div>{list.items.Item_Name} ({list.items.Quantity}),</div>
+                                )})
+                              }
+
+                              {/* Gloves ({list[index].Data.gloves}),
                               Boxes ({list[index].Data.boxes}),
                               Bags ({list[index].Data.bags}),
-                              Knife ({list[index].Data.knife}),
+                              Knife ({list[index].Data.knife}), */}
                               </p>
                           </div>
                       </div>

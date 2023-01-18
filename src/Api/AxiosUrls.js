@@ -19,6 +19,8 @@ export const clear_add_production = '/bakery/table/clear/add/prod';
 
 export const flav_name = 'bakery/flav/quat';
 
+export const branch_name = 'bakery/branch/names';
+
 export const Add_Movement = '/bakery/movement/add';
 
 export const Get_perct = 'bakery/percentage/get';
@@ -71,6 +73,12 @@ export const Products = 'admin/products/get';
 export const AddProducts = 'admin/products/add';
 export const EditProducts = 'admin/products/edit';
 export const DeleteProducts = 'admin/products/delete';
+
+//Requestable Accessories
+export const Requestable_get = 'admin/inventory/requestable/get';
+export const Requestable_add = 'admin/inventory/requestable/add';
+export const Requestable_edit = 'admin/inventory/requestable/edit';
+export const Requestable_delete = 'admin/inventory/requestable/delete';
 
 
 // Inventory

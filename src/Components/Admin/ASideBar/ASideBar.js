@@ -181,6 +181,16 @@ export default function ASideBar(props) {
                   
                 </li>
                 </NavLink>
+
+                <NavLink to="/inventory/requestable" className="link">
+                <li className={window.location.pathname === "/inventory/requestable" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                    <span className="ico">
+                        <img className="sico" src={Inventory} alt="" />
+                    </span>
+                  Requestable Accessories
+                  
+                </li>
+                </NavLink>
                 
                 <NavLink to="/inventory/requested" className="link">
                 <li className={window.location.pathname === "/inventory/requested" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>

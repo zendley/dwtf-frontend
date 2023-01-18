@@ -331,23 +331,28 @@ export default function AddProd() {
                     setRerender(!rerender);
                     setLoaderMain(false);
                     alert(response.data.message)
+                    var list = response.data.branches
 
-                    writeUserData();
+                    
+                    writeUserData(list);
                 }
             })
         }
     }
     }
 
-    function writeUserData() {
+    function writeUserData(list) {
         var date1 = new Date().getHours();
         var date2 = new Date().getMinutes();
         var date3 = new Date().getSeconds();
         var datet = date.concat(date1, date2, date3);
+        var list_cnt = list.length;
         console.log(datet);
         const db = getDatabase();
         set(ref(db, 'notification/' + datet), {
             'date': datet,
+            'count': list_cnt,
+            'branches': list,
         });
     }
 
