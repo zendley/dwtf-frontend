@@ -61,7 +61,7 @@ export default function AccessReq() {
       //   setErrMsg('Login Failed');
       // }
 
-    //   console.log(err);
+      console.log(err);
       
     }
 

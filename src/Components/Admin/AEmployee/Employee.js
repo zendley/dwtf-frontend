@@ -205,7 +205,7 @@ else if (editdata.branch_name === undefined ){
         )
         .then(response=>{
             
-            if(response.status === 201)
+            if(response.status === 200)
             {
               
                 // console.log(response.data)
@@ -216,14 +216,7 @@ else if (editdata.branch_name === undefined ){
                 setRerender(!rerender);
               alert(response.data.message)
             }
-            if(response.status === 200)
-            {
-              // console.log(response.status)
-                alert(response.data.message)
-                setLoaderMain(false);
-            }
-            else
-            {   
+            else{   
               // console.log(response.status)
                 alert("Error", response.status)
                 setLoaderMain(false);
@@ -351,8 +344,12 @@ else
           if(response.status === 200)
           {
             // console.log(response.status)
-              alert(response.data.message)
-              setLoaderMain(false);
+            alert(response.data.message)
+            setAddtIsOpen(false);
+            setAddData([]);
+            setAddImage('');
+            setAddImage2('');
+            setRerender(!rerender);
           }
           else if(response.status !== 201)
           {
@@ -362,12 +359,12 @@ else
             }
             else
             {   
+            alert(response.data.message)
             setAddtIsOpen(false);
             setAddData([]);
             setAddImage('');
             setAddImage2('');
             setRerender(!rerender);
-            alert(response.data.message)
             // console.log(response.status)
           }
       })
