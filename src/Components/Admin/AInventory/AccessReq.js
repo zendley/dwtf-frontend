@@ -212,9 +212,9 @@ export default function AccessReq() {
                               }>
                               {/* {tabl.Date} */}
 
-                              {list.items.map((tabl, index)=>{
+                              {tabl.Data.items.map((table, index)=>{
                                 return(
-                                    <div>{list.items.Item_Name} ({list.items.Quantity}),</div>
+                                    <div>{table.Item_Name} ({table.Quantity}),</div>
                                 )})
                               }
 
