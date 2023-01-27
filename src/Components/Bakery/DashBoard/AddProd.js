@@ -486,6 +486,7 @@ export default function AddProd() {
 
     const rowStyle2 = (row, rowIndex) => {
         const style = {};
+        
 
         for (let i = 0; i < red.length; i++) {
             if (row.id === red[i]) {
@@ -592,6 +593,7 @@ export default function AddProd() {
                         
                     
                         <div style={{display: 'none'}}>
+                            
                         <BootstrapTable style={{display: 'none'}} { ...props.baseProps } />
                         </div>
                         </>

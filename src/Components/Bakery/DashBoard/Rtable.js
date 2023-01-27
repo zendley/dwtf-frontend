@@ -67,6 +67,9 @@ export default function Rtable() {
     const [isred, setIsRed] = useState()
     const [isSubmit, setIsSUBMIT] = useState()
     const [submitbuttshow, setSubmitButtShow] = useState(false)
+    const [showwarningalert, setSshowWarningAlert] = useState(false)
+    const [warningmesg, setWarningMesg] = useState('Kindly submit assigned donuts')
+    const [decimalwarning, setDecimalWarning] = useState(false)
     const [productions, setProductions] = useState('')
     const [production_no, setProduction_no] = useState('os')
 
@@ -313,6 +316,7 @@ export default function Rtable() {
                     else
                     {   
                         // console.log(response.data)
+                        setSshowWarningAlert(true)
                         setRerender(!rerender); 
                         setSubmitButtShow(true);
                         setLoaderMain(false);
@@ -356,7 +360,7 @@ export default function Rtable() {
                 {   
                     // console.log(response.data)
                     
-                    
+                    setSshowWarningAlert(false)
                     setRerender(!rerender);
                     setLoaderMain(false);
                     alert(response.data.message)
@@ -547,8 +551,34 @@ export default function Rtable() {
     }
 
     const rowStyle2 = (row, rowIndex) => {
+  
         const style = {};
+        
+            
+            
+            for(let i=3;i<columns.length;i++){
 
+                if(!isNaN(row[columns[i].dataField]) && row[columns[i].dataField].toString().indexOf('.') != -1 && row[columns[i].dataField] !=0){
+                    style.backgroundColor = 'red';
+                    // setDecimalWarning('true')
+                    setSshowWarningAlert(true)
+                }
+                
+            }
+
+            // if(){
+            //     console.log('testtttttttttt')
+            //     setSshowWarningAlert(true)
+            //     setWarningMesg('Please fix decimal points')
+            // }
+            // else{
+            //     console.log('--------------------------')
+            //     setWarningMesg('Kindly submit assigned donuts')
+            // }
+
+        
+        
+       
         for (let i = 0; i < red.length; i++) {
             if (row.id === red[i]) {
                 style.backgroundColor = 'red';
@@ -561,6 +591,8 @@ export default function Rtable() {
         
         return style;
       };
+
+      
 
 
 
@@ -583,7 +615,7 @@ export default function Rtable() {
                       alert("Error", response.status)
                   }
                   else
-                  {   
+                  {   setSshowWarningAlert(false)
                       setRerender(!rerender);
                       setLoaderMain(false);
                   }
@@ -737,6 +769,7 @@ export default function Rtable() {
 
                         
                     </Link>
+                    
                 </div>
 
 
@@ -792,6 +825,14 @@ export default function Rtable() {
                 
 
             </div>
+            
+                
+                    {
+                        showwarningalert? <div className="alert alert-danger " role="alert">
+                         {warningmesg}
+                      </div> : ''
+                    }
+            
 
 
             <div  className="table">
@@ -823,6 +864,7 @@ export default function Rtable() {
                     blurToSave: true,
                     beforeSaveCell: handleBeforeSave,
                     afterSaveCell: handleAfterSave,
+                    
                     // nonEditableRows: () => [1, 2, 3],
                 })}
                 
