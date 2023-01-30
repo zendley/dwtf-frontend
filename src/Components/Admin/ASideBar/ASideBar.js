@@ -19,17 +19,25 @@ import bykea from '../../../Assets/Dashboard_SVGs/Bykea.png'
 import pandago from '../../../Assets/Dashboard_SVGs/PandaGo.png'
 import overalll from '../../../Assets/Dashboard_SVGs/sales.svg'
 
+import Notifications from '../../../Assets/Dashboard_SVGs/notification.svg'
+
+
 import React, { useEffect, useState } from 'react'
+var tok = localStorage.getItem('token')
+var token = 'Bearer ' + tok;
+
 
 
 export default function ASideBar(props) {
 
     const [channel, setChannel] = useState(false)
     const [rerender, setRerender] = useState(false);
+    
 
 
   useEffect(() => {
     //
+    props.getUnreadNoti(token)
   }, [rerender])
   
 
@@ -44,6 +52,8 @@ export default function ASideBar(props) {
      const channelHandler = () => {
         setChannel(!channel)
       }
+
+
     
     
       return (
@@ -53,7 +63,7 @@ export default function ASideBar(props) {
               {/* <h3 className="sidebarTitle">Dashboard</h3> */}
               <ul className="sidebarList">
                 <NavLink to="/" className="link">
-                <li className={window.location.pathname === "/" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Dashboard} alt="" />
                     </span>
@@ -61,7 +71,7 @@ export default function ASideBar(props) {
                 </li>
                 </NavLink>
                 <NavLink to="/kiosk" className="link">
-                <li className={window.location.pathname === "/kiosk" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}} >
+                <li className={window.location.pathname === "/kiosk" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}} >
                     <span className="ico">
                         <img className="sico" src={kiosk} alt="" />
                     </span>
@@ -69,7 +79,7 @@ export default function ASideBar(props) {
                 </li>
                 </NavLink>
                 <NavLink to="/employee" className="link">
-                <li className={window.location.pathname === "/employee" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/employee" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Employee} alt="" />
                     </span>
@@ -77,7 +87,7 @@ export default function ASideBar(props) {
                 </li>
                 </NavLink>
                 <NavLink to="/attendance" className="link">
-                <li className={window.location.pathname === "/attendance" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/attendance" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Attendance} alt="" />
                     </span>
@@ -98,7 +108,7 @@ export default function ASideBar(props) {
                 {channel ? 
                 <>
                 <NavLink to="/salechannel/kiosk" className="link">
-                <li className={window.location.pathname === "/salechannel/kiosk" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/salechannel/kiosk" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Kiosk2} alt="" />
                     </span>
@@ -107,7 +117,7 @@ export default function ASideBar(props) {
                 </NavLink>
 
                 <NavLink to="/salechannel/food_panda" className="link">
-                <li className={window.location.pathname === "/salechannel/food_panda" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/salechannel/food_panda" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={FoodPanda} alt="" />
                     </span>
@@ -115,7 +125,7 @@ export default function ASideBar(props) {
                 </li>
                 </NavLink>
                 <NavLink to="/salechannel/online_store" className="link">
-                <li className={window.location.pathname === "/salechannel/online_store" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/salechannel/online_store" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Online_Sale} alt="" />
                     </span>
@@ -147,7 +157,7 @@ export default function ASideBar(props) {
                 </li>
                 </NavLink> */}
                 <NavLink to="/salechannel/overall" className="link">
-                <li className={window.location.pathname === "/salechannel/overall" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/salechannel/overall" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={overalll} alt="" />
                     </span>
@@ -163,7 +173,7 @@ export default function ASideBar(props) {
 
 
                 <NavLink to="/inventory/fixed" className="link">
-                <li className={window.location.pathname === "/inventory/fixed" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/inventory/fixed" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Inventory} alt="" />
                     </span>
@@ -173,7 +183,7 @@ export default function ASideBar(props) {
                 </NavLink>
 
                 <NavLink to="/inventory" className="link">
-                <li className={window.location.pathname === "/inventory" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/inventory" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Inventory} alt="" />
                     </span>
@@ -183,17 +193,17 @@ export default function ASideBar(props) {
                 </NavLink>
 
                 <NavLink to="/inventory/requestable" className="link">
-                <li className={window.location.pathname === "/inventory/requestable" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/inventory/requestable" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Inventory} alt="" />
                     </span>
-                  Requestable Accessories
+                    Add New Accessories
                   
                 </li>
                 </NavLink>
                 
                 <NavLink to="/inventory/requested" className="link">
-                <li className={window.location.pathname === "/inventory/requested" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/inventory/requested" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Inventory} alt="" />
                     </span>
@@ -204,7 +214,7 @@ export default function ASideBar(props) {
 
 
                 <NavLink to="/products" className="link">
-                <li className={window.location.pathname === "/products" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/products" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Products} alt="" />
                     </span>
@@ -212,12 +222,21 @@ export default function ASideBar(props) {
                 </li>
                 </NavLink>
                 <NavLink to="/settings" className="link">
-                <li className={window.location.pathname === "/settings" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender)}}>
+                <li className={window.location.pathname === "/settings" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
                         <img className="sico" src={Settings} alt="" />
                     </span>
                   Settings
                 </li>
+                <NavLink to="/admin/notifications" className="link">
+            <li className={window.location.pathname === "/admin/notifications" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
+                <span className="ico">
+                    <img className="sico" src={Notifications} alt="" />
+                </span>
+              Notifications ({props.NoUnReadNoti})
+            </li>
+            </NavLink>
+
                 </NavLink>
                 {/* <Link to="/" className="link"> */}
                 <li onClick={logoutHandler} className="sidebarListItem" style={{

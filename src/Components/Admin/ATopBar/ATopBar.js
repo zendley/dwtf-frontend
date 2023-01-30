@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 
 import logo from '../../../Assets/Images/Logo.png'
 import Notifications from '../../../Assets/Dashboard_SVGs/notification.svg'
+import unreadNotifications from '../../../Assets/Dashboard_SVGs/notification red.svg'
 import loaderr from '../../../Assets/Dashboard_SVGs/loader.gif'
 import nodatafound from '../../../Assets/Dashboard_SVGs/NoContentFound.svg'
 
@@ -12,17 +13,27 @@ import { Link } from "react-router-dom";
 import axios from '../../../Api/Axios';
 import * as axiosURL from '../../../Api/AxiosUrls';
 
-var Admin_Notification = axiosURL.Admin_Notifications;
+var Admin_Notification = axiosURL.Notifications;
+
+
 var tok = localStorage.getItem('token')
 var token = 'Bearer ' + tok;
 
 
-export default function ATopBar() {
+export default function ATopBar(props) {
 
 
   const [notiisopen, setNotiIsOpen] = useState(false)
+  
   const [loader, setLoader] = useState(false)
   const [data, setData] = useState([])
+
+   
+
+
+
+
+  
 
   const getNoti = () => {
     setLoader(true);
@@ -42,8 +53,13 @@ export default function ATopBar() {
             }
             else
             {   
+              console.log(response.data)
+              // return
                 setData(response.data);
                 setLoader(false);
+                // if(response.data.unread){
+                //   setUnRead(true)
+                // }
                 
 
                 console.log(response.data)
@@ -80,7 +96,8 @@ export default function ATopBar() {
                 <Link
                 onClick={()=>{ getNoti(); notiisopen === true ? setNotiIsOpen(false) : setNotiIsOpen(true);}}
                 >
-                  <img style={{width: '25px', marginRight: '10px',}} src={Notifications} alt="" />
+                  
+                  {props.unread?<img style={{width: '25px', marginRight: '10px',}} src={unreadNotifications} alt="" />:<img style={{width: '25px', marginRight: '10px',}} src={Notifications} alt="" />}
                 </Link>
               </div>
               {/* <img src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="topAvatar" /> */}
@@ -126,24 +143,48 @@ export default function ATopBar() {
                 :
 
                 data.map((tabl, index)=>{
-                  return(
-                <div>
-                  <p
-                  style={{
-                    marginBottom: '0px',
-                  }}
-                  >New Inventory Request</p>
-                  <p
-                  style={{
-                    marginBottom: '0px',
-                    fontSize: '9px',
-                    color: 'gray',
-                  }}
-                  >{tabl.date}</p>
-                  <hr style={{margin: '0.3rem 0',}} />
-                </div>
+                  // console.log(tabl)
+                  if(tabl.read_at){
+                    return(
+                      <div>
+                        <p
+                        style={{
+                          marginBottom: '0px',
+                        }}
+                        >New Inventory Request</p>
+                        <p
+                        style={{
+                          marginBottom: '0px',
+                          fontSize: '9px',
+                          color: 'gray',
+                        }}
+                        >{tabl.date}</p>
+                        <hr style={{margin: '0.3rem 0',}} />
+                      </div>
+                        
+                        );
+                  }
+                  else{
+                    return(
+                      <div className="bg-light ">
+                        <p
+                        style={{
+                          marginBottom: '0px',
+                        }}
+                        >New Inventory Request</p>
+                        <p
+                        style={{
+                          marginBottom: '0px',
+                          fontSize: '9px',
+                          color: 'gray',
+                        }}
+                        >{tabl.date}</p>
+                        <hr style={{margin: '0.3rem 0',}} />
+                      </div>
+                        
+                        );
+                  }
                   
-                  );
                 })}
                 
                 

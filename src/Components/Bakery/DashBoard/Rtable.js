@@ -160,10 +160,12 @@ export default function Rtable() {
     const getData = async () => {
         setLoaderMain(true)
         rp = remainingProd;
+        console.log(production_no)
         // console.log(rp);
        await axios.post(BakeryData,
             {
                 production_no: production_no
+                
             },
             {
                 headers: {
@@ -197,7 +199,7 @@ export default function Rtable() {
         ).then(async (res) => {
         // setTable(res.data);
         var col = [];
-        // console.log(res.data)
+        console.log(res.data)
         for (let i = 0; i < res.data.length; i++) {
             var data = {
                 'text': res.data[i].perct_to_divide != null ? res.data[i].text  + ' (' + res.data[i].perct_to_divide + '%)': res.data[i].text,
@@ -316,6 +318,9 @@ export default function Rtable() {
                     else
                     {   
                         // console.log(response.data)
+                        console.log('**************************')
+                        console.log(response.data)
+                        console.log('*************************')
                         setSshowWarningAlert(true)
                         setRerender(!rerender); 
                         setSubmitButtShow(true);
@@ -742,7 +747,7 @@ export default function Rtable() {
                             }
                             
                         }>
-                            overall production
+                            Overall Production
                         </div>
                     :
                     <div style={
@@ -761,7 +766,7 @@ export default function Rtable() {
                         }
                         
                     }>
-                        overall production
+                        Overall Production
                     </div>
                     }
 
@@ -794,7 +799,7 @@ export default function Rtable() {
                                             border: '2px solid rgb(70, 59, 59)',
                                         }
                                     }>
-                                        production {i+1}
+                                        Production {i+1}
                                     </div>
 
                                     :
@@ -814,7 +819,7 @@ export default function Rtable() {
                                             marginBottom: '5px',
                                         }
                                     }>
-                                        production {i+1}
+                                        Production {i+1}
                                     </div>
                                 }
                                 </Link>
@@ -846,7 +851,7 @@ export default function Rtable() {
                 
 
                 
-                    
+               
 
 
                 

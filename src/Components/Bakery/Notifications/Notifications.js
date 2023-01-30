@@ -6,11 +6,14 @@ import * as axiosURL from '../../../Api/AxiosUrls';
 import loader from '../../../Assets/Dashboard_SVGs/loader.gif'
 
 var Notification = axiosURL.Notifications;
+var ReadNotification = axiosURL.ReadNotifications;
 
 var tok = localStorage.getItem('token')
 var token = 'Bearer ' + tok;
 
-export default function Notifications() {
+
+
+export default function Notifications(props) {
 
   const [table, setTable] = useState([]);
   const [loadermain, setLoaderMain] = useState(true);
@@ -20,6 +23,34 @@ export default function Notifications() {
     getData();
   }, []);
 
+  const handleNotification = () => {
+    setLoaderMain(true);
+
+    const url = ReadNotification
+        axios.get(url,
+        {
+            headers: {
+              'Authorization': token,
+            }
+        }
+        )
+        .then(response=>{
+            if(response.status !== 200)
+            {
+                alert("Error", response.status)
+            }
+            else
+            {   
+                // setTable(response.data);
+                props.getUnreadNoti(token)
+                setLoaderMain(false);
+
+                // console.log(response.data)
+
+                
+            }
+        })
+  }
 
   const getData = () => {
 
@@ -77,10 +108,12 @@ if(loadermain === true)
                       <h4 style={{color: '#463B3B'}}>
                         Notifications
                       </h4>
+
+                      {props.NoUnReadNoti?<button onClick={handleNotification} className="pBut">read all</button>:''}
         
                     </div>
                     
-                    <table className="tablee">
+                    <table className="tablee" id="notification-table">
                     <thead>
                     <tr>
                       <th>Kiosk</th>
@@ -95,7 +128,7 @@ if(loadermain === true)
                     
                     {table.map((tabl, index)=>{
                       return(
-                      <tr key={tabl.id}>
+                      <tr key={tabl.id} >
                         <td>{tabl.kiosk}</td>
                         <td>{tabl.cate}</td>
                         <td>{tabl.type}</td>

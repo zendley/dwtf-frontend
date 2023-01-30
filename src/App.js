@@ -28,6 +28,7 @@ import Register from "./Components/Auth/Register/Register";
 import SetPerct from "./Components/Bakery/SetPerct/SetPerct";
 import History from "./Components/Bakery/History/History";
 import Notifications from "./Components/Bakery/Notifications/Notifications";
+import ANotifications from "./Components/Admin/Notification/Notifications";
 
 import SKiosk from "./Components/Admin/ASaleChannel/Kiosk";
 import SFoodPanda from "./Components/Admin/ASaleChannel/FoodPanda";
@@ -48,11 +49,54 @@ import { getFirebaseToken, onForegroundMessage} from './firebase';
 import { getDatabase, ref, set } from "firebase/database";
 import RequestableAcc from "./Components/Admin/AInventory/RequestableAcc";
 
+import axios from './/Api/Axios';
+// import axios from '.;
+import * as axiosURL from './/Api/AxiosUrls';
+var Unread_Notification = axiosURL.Unread_Notification;
+
 const db = getDatabase();
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
   const [role, setRole] = useState(localStorage.getItem('role'));
+  const [unreadnotification, setUnreadNotification] = useState(0);
+  const [unread, setUnRead] = useState(false)
+
+
+  const getUreadNoti = (token) => {
+    
+    const url = Unread_Notification
+        axios.get(url,
+        {
+            headers: {
+              'Authorization': token,
+            }
+        }
+        )
+        .then(response=>{
+            if(response.status !== 200)
+            {
+                alert("Error", response.status)
+            }
+            else
+            {   
+              
+                if(response.data){
+                  setUnRead(true)
+                }
+                else{
+                  setUnRead(false)
+
+                }
+                setUnreadNotification(response.data)
+                
+                console.log('----------------------')
+                console.log(response.data)
+
+                
+            }
+        })
+  }
 
   const [showNotificationBanner, setShowNotificationBanner] = useState(Notification.permission === 'default');
 
@@ -121,9 +165,9 @@ function App() {
     return(
       <>
           <Router>
-        <Topbar/>
+        <Topbar unread ={unread}/>
         <div className="containerr">
-          <Sidebar setToken={setToken} setRole={setRole} />
+          <Sidebar setToken={setToken} setRole={setRole}  getUnreadNoti = {getUreadNoti} NoUnReadNoti = {unreadnotification}/>
           <div style={{ backgroundImage: `url(${bg})` }} className="others">
             <div>
                 <Routes>
@@ -132,7 +176,7 @@ function App() {
                   <Route path="/live_status" element = {<LiveStatus/>}></Route>
                   <Route path="/set_percentage" element = {<SetPerct/>}></Route>
                   <Route path="/history" element = {<History />}></Route>
-                  <Route path="/notifications" element = {<Notifications/>}></Route>
+                  <Route path="/notifications" element = {<Notifications getUnreadNoti = {getUreadNoti} NoUnReadNoti = {unreadnotification} />}></Route>
                 </Routes>
             </div>
 
@@ -151,9 +195,9 @@ function App() {
     return(
       <>
           <Router>
-        <ATopBar/>
+        <ATopBar unread ={unread}/>
         <div className="containerr">
-          <ASideBar setToken={setToken} setRole={setRole} />
+          <ASideBar setToken={setToken} setRole={setRole} getUnreadNoti = {getUreadNoti} NoUnReadNoti = {unreadnotification}/>
           <div style={{ backgroundImage: `url(${bg})` }} className="others">
             <div>
                 <Routes>
@@ -176,6 +220,7 @@ function App() {
                   <Route path="/inventory/requested" element = {<AccessReq />}></Route>
                   <Route path="/products" element = {<Products />}></Route>
                   <Route path="/settings" element = {<Settings />}></Route>
+                  <Route path="/admin/notifications" element = {<ANotifications getUnreadNoti = {getUreadNoti} NoUnReadNoti = {unreadnotification}/> }></Route>
                 </Routes>
             </div>
 

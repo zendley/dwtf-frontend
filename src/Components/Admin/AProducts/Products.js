@@ -192,7 +192,7 @@ const AddApi = () => {
           }
           else
           {   
-            // console.log(response.data)
+            console.log(response.data)
             setAddtIsOpen(false);
             setAddData([]);
             setRerender(!rerender);

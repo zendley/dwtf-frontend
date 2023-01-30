@@ -184,6 +184,7 @@ else if (editdata.branch_name === undefined ){
       setLoaderMain(true);
       let data = new FormData();
       data.append('name', editdata.name);
+      data.append('email', editdata.email);
       data.append('address', editdata.address);
       data.append('salary', editdata.salary);
       data.append('phone', editdata.phone);
@@ -227,7 +228,7 @@ else if (editdata.branch_name === undefined ){
     }
 
     const handleEditChange = e => {
-      // console.log(e.target.value)
+      console.log(e.target.name)
       const { name, value } = e.target;
       setEditData(prevState => ({
         ...prevState,
@@ -315,7 +316,7 @@ else
 
 
   setLoaderMain(true);
-
+  console.log(adddata.email)
   let data = new FormData();
   data.append('name', adddata.name);
   data.append('email', adddata.email);
@@ -530,12 +531,13 @@ if(loadermain === true)
             <Form.Label>Email</Form.Label>
             <Form.Control
               value={editdata.email}
-              name="name"
+              name="email"
               type="text"
               onChange={handleEditChange}
-              disabled
+              // disabled
             />
           </Form.Group>
+
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Assign Kiosk</Form.Label>
@@ -594,7 +596,7 @@ if(loadermain === true)
           </Form.Group>
           
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Cnic Front</Form.Label>
+            <Form.Label>CNIC Front</Form.Label>
             <Form.Control
               name="image"
               type="file"
@@ -603,7 +605,7 @@ if(loadermain === true)
           </Form.Group>
           
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Cnic Back</Form.Label>
+            <Form.Label>CNIC Back</Form.Label>
             <Form.Control
               name="image"
               type="file"
@@ -726,7 +728,7 @@ if(loadermain === true)
           </Form.Group>
           
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Cnic Front</Form.Label>
+            <Form.Label>CNIC Front</Form.Label>
             <Form.Control
               name="image"
               type="file"
@@ -735,7 +737,7 @@ if(loadermain === true)
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-            <Form.Label>Cnic Back</Form.Label>
+            <Form.Label>CNIC Back</Form.Label>
             <Form.Control
               name="image"
               type="file"

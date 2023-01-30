@@ -35,9 +35,11 @@ export const bakery_movement_Kiosk = 'bakery/kiosk/movement/get';
 
 export const History = 'bakery/history';
 
-export const Notifications = '/bakery/notifications/get';
+// export const Notifications = '/bakery/notifications/get';
 
-export const Admin_Notifications = '/admin/notification/get';
+export const Notifications = '/notification/get';
+export const Unread_Notification = '/unreadnotification/get';
+export const ReadNotifications = '/notification/read';
 
 export const Submit = '/bakery/today/submit';
 
@@ -102,3 +104,5 @@ export const OverAll = '/admin/salechannel/overall/get';
 
 //settings
 export const ChangePass = '/admin/settings/change/pass';
+
+export const ChangeBatchPrice = '/admin/settings/changebatch';

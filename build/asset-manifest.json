@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.60f3ea77.css",
-    "main.js": "/static/js/main.0005dff8.js",
+    "main.css": "/static/css/main.04ad417e.css",
+    "main.js": "/static/js/main.fdcdc479.js",
     "static/js/703.0d142956.chunk.js": "/static/js/703.0d142956.chunk.js",
     "static/js/513.31aecc2c.chunk.js": "/static/js/513.31aecc2c.chunk.js",
     "static/media/loginlogo.png": "/static/media/loginlogo.459538a723dffcf6f05a.png",
@@ -16,13 +16,14 @@
     "static/media/Sale_Channel.svg": "/static/media/Sale_Channel.edb197955fd1dbcb46f87bc3a8d6fc7b.svg",
     "static/media/sales.svg": "/static/media/sales.9e178913aba4704cfbd94d26aae66317.svg",
     "static/media/kiosk.svg": "/static/media/kiosk.90f66fcc6dc5d201cfd44f19d0319f82.svg",
+    "static/media/notification red.svg": "/static/media/notification red.e7a49269aa09a7cd86afded8adfa8ea9.svg",
     "static/media/Dashboard.svg": "/static/media/Dashboard.4db0622e12570bbdf13e4e6dfed94ae3.svg",
     "static/media/FoodPanda.svg": "/static/media/FoodPanda.62c0a8252d633984958f41e2b3d88b5c.svg",
     "static/media/Products.svg": "/static/media/Products.1361026db585ae5145e8170198223168.svg",
+    "static/media/notification.svg": "/static/media/notification.f80a615c16cbf0096202dd637f92e56a.svg",
     "static/media/clock.svg": "/static/media/clock.2ba368ea27aa245a92cb6d0840d1aa33.svg",
     "static/media/Attendance.svg": "/static/media/Attendance.fd047a3aff3dae5bb83cd1e06dc25ee4.svg",
     "static/media/livestatus.svg": "/static/media/livestatus.bfe586dcf41def0e3af834ad1a7544fd.svg",
-    "static/media/notification.svg": "/static/media/notification.e07763a4f8256756068a69e9a45739c9.svg",
     "static/media/location.svg": "/static/media/location.6d77e508f409e79551955352f245e8c4.svg",
     "static/media/delete.svg": "/static/media/delete.532e357662027916c9e07dad9831b474.svg",
     "static/media/DashIcon.svg": "/static/media/DashIcon.d99e3c9284a5a073411912a19ee91bcf.svg",
@@ -40,13 +41,13 @@
     "static/media/back.svg": "/static/media/back.edaf8c01fc83c693da0d0d0f5ca31086.svg",
     "static/media/close.svg": "/static/media/close.51bf723ca3f11d8480edee94c0d9569b.svg",
     "static/media/open.svg": "/static/media/open.ed83119676139faa8bf2ee41188a3994.svg",
-    "main.60f3ea77.css.map": "/static/css/main.60f3ea77.css.map",
-    "main.0005dff8.js.map": "/static/js/main.0005dff8.js.map",
+    "main.04ad417e.css.map": "/static/css/main.04ad417e.css.map",
+    "main.fdcdc479.js.map": "/static/js/main.fdcdc479.js.map",
     "703.0d142956.chunk.js.map": "/static/js/703.0d142956.chunk.js.map",
     "513.31aecc2c.chunk.js.map": "/static/js/513.31aecc2c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.60f3ea77.css",
-    "static/js/main.0005dff8.js"
+    "static/css/main.04ad417e.css",
+    "static/js/main.fdcdc479.js"
   ]
 }

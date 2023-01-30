@@ -42,6 +42,7 @@ export default function AddProd() {
     
     
     const [totalProd, setTotalProd] = useState();
+    const [lastRemaining, setLastRemaining] = useState();
     const [date, setDate] = useState();
     const [remainingProd, setRemainingProd] = useState();
     const [columns, setColumns] = useState([]);
@@ -63,6 +64,8 @@ export default function AddProd() {
     const [red, setRed] = useState([])
     const [isred, setIsRed] = useState()
     const [isSubmit, setIsSUBMIT] = useState()
+    const [showwarningalert, setSshowWarningAlert] = useState(false)
+    const [warningmesg, setWarningMesg] = useState('Kindly submit assigned donuts')
     const [submitbuttshow, setSubmitButtShow] = useState(false)
 
     const [inputFields, setInputFields] = useState([
@@ -131,6 +134,7 @@ export default function AddProd() {
     const getData = async () => {
         rp = remainingProd;
         // console.log(rp);
+        console.log('test')
        await axios(BakeryData,
             {
                 headers: {
@@ -148,6 +152,8 @@ export default function AddProd() {
             setIsSUBMIT(res.data.isSubmit);
 
             console.log(res.data)
+            // console.log(res.remaining)
+            setLastRemaining(res.data.remaining)
             
         });     
         
@@ -281,7 +287,10 @@ export default function AddProd() {
                     }
                     else
                     {   
-                        // console.log(response.data)
+                        console.log('-------------------------')
+                        console.log(response.data)
+                        console.log('--------------------------')
+                        setSshowWarningAlert(true)
                         setRerender(!rerender);
                         setSubmitButtShow(true);
                         setLoaderMain(false);
@@ -327,7 +336,7 @@ export default function AddProd() {
                 {   
                     console.log(response.data)
                     
-                    
+                    setSshowWarningAlert(false)
                     setRerender(!rerender);
                     setLoaderMain(false);
                     alert(response.data.message)
@@ -384,7 +393,7 @@ export default function AddProd() {
             quant = quant + num;
         }
 
-        setRemainingProd(totalProd - quant)
+        setRemainingProd((parseInt(totalProd) + lastRemaining) - quant)
 
         
     }
@@ -487,6 +496,15 @@ export default function AddProd() {
     const rowStyle2 = (row, rowIndex) => {
         const style = {};
         
+        for(let i=3;i<columns.length;i++){
+
+            if(!isNaN(row[columns[i].dataField]) && row[columns[i].dataField].toString().indexOf('.') != -1 && row[columns[i].dataField] !=0){
+                style.backgroundColor = 'red';
+                // setDecimalWarning('true')
+                setSshowWarningAlert(true)
+            }
+            
+        }
 
         for (let i = 0; i < red.length; i++) {
             if (row.id === red[i]) {
@@ -505,7 +523,7 @@ export default function AddProd() {
 
       const handleClear = () => {
       
-
+        
         setLoaderMain(true);
   
               const url = Clear_Url;
@@ -523,6 +541,10 @@ export default function AddProd() {
                   }
                   else
                   {   
+                    console.log('-----------------------')
+                    console.log('test')
+                    console.log('-----------------------')
+                    setSshowWarningAlert(false)
                       setRerender(!rerender);
                       setLoaderMain(false);
                   }
@@ -576,6 +598,7 @@ export default function AddProd() {
                     :        
                     ""   
                     }
+                    {/* <h1>test</h1> */}
                         
 
                 <ToolkitProvider
@@ -607,6 +630,12 @@ export default function AddProd() {
                         </button> */}
                     </div>
                 </div>
+
+                {
+                        showwarningalert? <div className="alert alert-danger " role="alert">
+                         {warningmesg}
+                      </div> : ''
+                    }
             <div  className="table">
     
                 {columns.length === 0  ? 
@@ -774,6 +803,7 @@ export default function AddProd() {
                     </div>
                 )
                 })}
+                
 
 
 

@@ -23,3 +23,7 @@ body {
     min-width: 82vw;
     /* margin: 3px; */
 }
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+}

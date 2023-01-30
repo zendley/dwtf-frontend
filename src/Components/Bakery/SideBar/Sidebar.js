@@ -1,4 +1,4 @@
-import React from 'react'
+
 import "./Sidebar.css";
 import { NavLink, useHistory ,useLocation } from "react-router-dom";
 
@@ -9,10 +9,19 @@ import Notifications from '../../../Assets/Dashboard_SVGs/notification.svg'
 import logout from '../../../Assets/Dashboard_SVGs/logout.svg'
 import livestatus from '../../../Assets/Dashboard_SVGs/livestatus.svg'
 
+import React, { useEffect, useState } from 'react'
 
 
 export default function Sidebar(props) {
   
+  
+  var tok = localStorage.getItem('token')
+  var token = 'Bearer ' + tok;
+  useEffect(() => {
+    //
+    props.getUnreadNoti(token)
+  })
+
   const location = useLocation()
 
   const logoutHandler = () => {
@@ -31,7 +40,7 @@ export default function Sidebar(props) {
           {/* <h3 className="sidebarTitle">Dashboard</h3> */}
           <ul className="sidebarList">
             <NavLink to="/" className="link">
-            <li className={window.location.pathname === "/" ? 'sidebarListItem active' : "sidebarListItem"}>
+            <li className={window.location.pathname === "/" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
                 <span className="ico">
                     <img className="sico" src={Dashboard} alt="" />
                 </span>
@@ -39,7 +48,7 @@ export default function Sidebar(props) {
             </li>
             </NavLink>
             <NavLink to="/live_status" className="link">
-            <li className={window.location.pathname === "/live_status" ? 'sidebarListItem active' : "sidebarListItem"}>
+            <li className={window.location.pathname === "/live_status" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
                 <span className="ico">
                     <img className="sico" src={livestatus} alt="" />
                 </span>
@@ -47,7 +56,7 @@ export default function Sidebar(props) {
             </li>
             </NavLink>
             <NavLink to="/set_percentage" className="link" >
-            <li  className={window.location.pathname === "/set_percentage" ? 'sidebarListItem active' : "sidebarListItem"}>
+            <li  className={window.location.pathname === "/set_percentage" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
                 <span className="ico">
                     <img className="sico" src={Percentage} alt="" />
                 </span>
@@ -55,7 +64,7 @@ export default function Sidebar(props) {
             </li>
             </NavLink>
             <NavLink to="/history"  className="link">
-            <li className={window.location.pathname === "/history" ? 'sidebarListItem active' : "sidebarListItem"}>
+            <li className={window.location.pathname === "/history" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
                 <span className="ico">
                     <img className="sico" src={History} alt="" />
                 </span>
@@ -63,11 +72,11 @@ export default function Sidebar(props) {
             </li>
             </NavLink>
             <NavLink to="/notifications" className="link">
-            <li className={window.location.pathname === "/notifications" ? 'sidebarListItem active' : "sidebarListItem"}>
+            <li className={window.location.pathname === "/notifications" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
                 <span className="ico">
                     <img className="sico" src={Notifications} alt="" />
                 </span>
-              Notifications
+              Notifications ({props.NoUnReadNoti})
             </li>
             </NavLink>
             {/* <Link to="/" className="link"> */}

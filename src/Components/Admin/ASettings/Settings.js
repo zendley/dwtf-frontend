@@ -8,6 +8,7 @@ var tok = localStorage.getItem('token')
 var token = 'Bearer ' + tok;
 
 var Url = axiosURL.ChangePass;
+var changebatch = axiosURL.ChangeBatchPrice;
 
 export default function Settings() {
 
@@ -19,12 +20,48 @@ export default function Settings() {
   })
 
   const handleFormChange = e => {
+    // console.log('test')
     const { name, value } = e.target;
     setForm(prevState => ({
       ...prevState,
       [name]: value
   }));
 };
+
+
+const handleFormSubmitBatach = e =>{
+  e.preventDefault();
+  const url = changebatch
+  axios.post(url, {
+    batch_12: form.batch12,
+    batch_9: form.batch9,
+    batch_6: form.batch6,
+    bag: form.bag,
+  },
+  {
+      headers: {
+        'Authorization': token,
+      }
+  }
+  )
+  .then(response=>{
+      if(response.status !== 200)
+      {
+          alert(response.status)
+      }
+      else
+      {   
+        // console.log(response.data)
+          // setForm({
+          //   batch12: response.data.data,
+          //   batch12: response.data.data,
+          //   batch12: response.data.data
+          // });
+          alert(response.data.message)
+          // setRerender(!rerender); 
+      }
+  })
+}
 
 const handleFormSubmit = e => {
 
@@ -82,8 +119,9 @@ const handleFormSubmit = e => {
         <p style={{color: '#463B3B'}}>
           Admin Settings
         </p>
+        <div className="d-flex">
 
-        <div className="card2">
+        <div className="card2 m-2">
           <form className="Sform" onSubmit={handleFormSubmit}>
             <input type="text" className="form-control inpp" placeholder="Confirm Email" name="email" onChange={handleFormChange} value={form.email}/>
             <input type="text" className="form-control inpp" placeholder="Password" name="pass" onChange={handleFormChange} value={form.pass}/>
@@ -92,6 +130,20 @@ const handleFormSubmit = e => {
             <button className="butto">Submit</button>
           </form>
         </div>
+
+        <div className="card2 m-2">
+          <form className="Sform" onSubmit={handleFormSubmitBatach}>
+            <input type="text" className="form-control inpp" placeholder="Batch of 12" name="batch12" onChange={handleFormChange} />
+            <input type="text" className="form-control inpp" placeholder="Batch of 9" name="batch9" onChange={handleFormChange} />
+            <input type="text" className="form-control inpp" placeholder="Batch of 6" name="batch6" onChange={handleFormChange} />
+            <input type="text" className="form-control inpp" placeholder="Bag price" name="bag" onChange={handleFormChange} />
+
+            <button className="butto">Submit</button>
+          </form>
+        </div>
+        </div>
+
+        
 
       </div>
     </>
