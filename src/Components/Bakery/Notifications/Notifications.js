@@ -119,7 +119,7 @@ if(loadermain === true)
                       <th>Kiosk</th>
                       <th>Category</th>
                       <th>Type</th>
-                      {/* <th>Description</th> */}
+                      <th>Description</th>
                       <th>date</th>
                      
                     </tr>
@@ -132,7 +132,7 @@ if(loadermain === true)
                         <td>{tabl.kiosk}</td>
                         <td>{tabl.cate}</td>
                         <td>{tabl.type}</td>
-                        {/* <td>{tabl.desc}</td> */}
+                        <td>{tabl.desc}</td>
                         <td style={{
                           fontSize:'10px',
                         }}>{tabl.date_time}</td>
