@@ -156,7 +156,10 @@ export default function LiveStatus() {
                 }
                 else
                 {   
+
+                    console.log('============================')
                     console.log(response.data)
+                    console.log('============================')
                     setFrom('Select From')
                     setTo('Select To')
                     setMovementIsOpen(false);
@@ -294,7 +297,7 @@ export default function LiveStatus() {
                     {/* <h2>Remaining = {remainingProd}</h2> */}
                     <div className="buttons">
 
-                        <button style={{width:'140px', marginRight: '0px !important',}} onClick={()=>{setMovementIsOpen(true);} } className="pBut">
+                        <button style={{width:'140px', marginRight: '0px !important',}} onClick={()=>{setMovementIsOpen(true);} } className="pButMr0">
                           <span>
                             <img style={{height: '10px'}} src={addmovementimg} alt="" />
                             </span>  Add Movement

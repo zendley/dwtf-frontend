@@ -55,7 +55,7 @@ export default function ATopBar(props) {
             {   
               console.log(response.data)
               // return
-                setData(response.data);
+                setData(response.data.slice(0,5));
                 setLoader(false);
                 // if(response.data.unread){
                 //   setUnRead(true)
@@ -151,14 +151,14 @@ export default function ATopBar(props) {
                         style={{
                           marginBottom: '0px',
                         }}
-                        >New Inventory Request</p>
+                        className="text-truncate" >{tabl.desc}</p>
                         <p
                         style={{
                           marginBottom: '0px',
                           fontSize: '9px',
                           color: 'gray',
                         }}
-                        >{tabl.date}</p>
+                        >{tabl.date_time}</p>
                         <hr style={{margin: '0.3rem 0',}} />
                       </div>
                         
@@ -171,14 +171,14 @@ export default function ATopBar(props) {
                         style={{
                           marginBottom: '0px',
                         }}
-                        >New Inventory Request</p>
+                        className="text-truncate" >{tabl.desc}</p>
                         <p
                         style={{
                           marginBottom: '0px',
                           fontSize: '9px',
                           color: 'gray',
                         }}
-                        >{tabl.date}</p>
+                        >{tabl.date_time}</p>
                         <hr style={{margin: '0.3rem 0',}} />
                       </div>
                         

@@ -134,9 +134,9 @@ export default function AssignInv() {
                 {item: 'Box of 6', quantity: '0'},
                 {item: 'Box of 9', quantity: '0'},
                 {item: 'Box of 12', quantity: '0'},
-                {item: 'Pack of 6', quantity: '0'},
-                {item: 'Pack of 9', quantity: '0'},
-                {item: 'Pack of 12', quantity: '0'},
+                {item: 'Bag of 6', quantity: '0'},
+                {item: 'Bag of 9', quantity: '0'},
+                {item: 'Bag of 12', quantity: '0'},
               ])
               
               setLoaderMain(false);

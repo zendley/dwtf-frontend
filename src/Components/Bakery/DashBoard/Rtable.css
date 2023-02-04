@@ -28,6 +28,15 @@ h2{
     margin: 10px !important;
     padding: 5px 12px !important;
 }
+.pButMr0{
+    border: none !important;
+    border-radius: 25px !important;
+    font-size: 13px !important;
+    color: white !important;
+    background-color: #FF8AA5 !important;
+    margin: 10px 0 10px 10px !important;
+    padding: 5px 12px !important;
+}
 
 .table{
     background-color: white;

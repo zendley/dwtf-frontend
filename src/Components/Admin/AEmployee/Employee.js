@@ -451,7 +451,7 @@ if(loadermain === true)
       <CSVLink style={{padding: '6.5px 35px',}} {...csvReport} className="b1">Download</CSVLink>
         <button style={{
           width: "175px",
-          marginRight: '17px'
+          
         }} className="b2"><Link style={{all: 'unset', cursor: 'pointer'}} to="/employee" onClick={()=>{setAddtIsOpen(true);}} >Add New Employee </Link></button>
       </div>
     </div>
@@ -466,6 +466,7 @@ if(loadermain === true)
       <th>Salary(PKR)</th>
       <th>Joining Date</th>
       <th>Status</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>

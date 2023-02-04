@@ -5,7 +5,7 @@ import { NavLink, useHistory ,useLocation } from "react-router-dom";
 import Dashboard from '../../../Assets/Dashboard_SVGs/Dashboard.svg'
 import Percentage from '../../../Assets/Dashboard_SVGs/discount.svg'
 import History from '../../../Assets/Dashboard_SVGs/history.svg'
-import Notifications from '../../../Assets/Dashboard_SVGs/notification.svg'
+import Notifications from '../../../Assets/Dashboard_SVGs/side notification icon.svg'
 import logout from '../../../Assets/Dashboard_SVGs/logout.svg'
 import livestatus from '../../../Assets/Dashboard_SVGs/livestatus.svg'
 

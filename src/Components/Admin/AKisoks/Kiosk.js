@@ -375,6 +375,7 @@ if(loadermain === true)
         {/* <th>Inventory</th> */}
         <th>Monthly Rent(PKR)</th>
         <th>Comission(%)</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>

@@ -75,6 +75,7 @@ export const Products = 'admin/products/get';
 export const AddProducts = 'admin/products/add';
 export const EditProducts = 'admin/products/edit';
 export const DeleteProducts = 'admin/products/delete';
+export const AddCategory = 'admin/products/addcategory';
 
 //Requestable Accessories
 export const Requestable_get = 'admin/inventory/requestable/get';

@@ -14,6 +14,7 @@ import { CSVLink } from "react-csv";
 
 var Url = axiosURL.Products;
 var AddUrl = axiosURL.AddProducts;
+// var addCategory = axiosURL.AddCategory;
 var EditUrl = axiosURL.EditProducts;
 var DeleteUrl = axiosURL.DeleteProducts;
 var tok = localStorage.getItem('token')
@@ -33,8 +34,12 @@ export default function Products() {
   const [editimage, setEditImage] = useState([]);
   const [editindex, setEditIndex] = useState([]);
   const [adddata, setAddData] = useState([]);
+  // const [addcategorydata, setAddCategoryData] = useState([]);
   const [addimage, setAddImage] = useState([]);
   const [loadermain, setLoaderMain] = useState(true)
+
+  const [addcategory,setAddCategory] = useState(false)
+  // const [category,setCategory] = useState('1')
 
 
   useEffect(() => {
@@ -43,6 +48,7 @@ export default function Products() {
   useEffect(() => {
     //
   }, [editdata])
+  
   
 
 
@@ -59,9 +65,15 @@ export default function Products() {
           }
           );
 
-          var res = response.data;
+          var res = response.data.data;
 
           setTable(res);
+          // console.log('================')
+          // console.log(setCategory(''))
+          // console.log('================')
+          // console.log(category)
+          // console.log('================')
+          
 
         setLoaderMain(false);
         // console.log(response);
@@ -96,6 +108,14 @@ export default function Products() {
       [name]: value
   }));
 };
+
+// const handleAddCategory = e => {
+//   const { name, value } = e.target;
+//   setAddCategoryData(prevState => ({
+//     ...prevState,
+//     [name]: value
+// }));
+// };
 
 
 const hadleEditModel = (index) => {
@@ -145,7 +165,7 @@ const handleImageEdit = e =>
 
 const AddApi = () => {
   // api Logic Here
-
+  
   setLoaderMain(true);
 
   if (adddata.dName === ""){
@@ -201,6 +221,53 @@ const AddApi = () => {
   }
 
 }
+
+// const AddCategoryApi = () => {
+//   // api Logic Here
+
+  
+  
+  
+//   if (addcategorydata.categoryName === undefined || addcategorydata.categoryName === ""){
+//     alert("Category Name is Required")
+//     return
+//   }
+//   else
+//   {
+    
+//     setLoaderMain(true);
+
+//     let data = new FormData();
+//     data.append('category_name', addcategorydata.categoryName);
+    
+//       const url = addCategory;
+//       axios.post(url, 
+//         data,
+//         {
+//           headers: {
+//             'Authorization': token,
+//           }
+//         }
+//       )
+//       .then(response=>{
+        
+//           if(response.status !== 200)
+//           {
+            
+//               alert("Error", response.status)
+//           }
+//           else
+//           {  
+//             console.log(response)
+//             setAddCategory(false);
+//             setAddCategoryData([]);
+//             setRerender(!rerender);
+//             alert(response.data.message)
+//           }
+//       })
+//   }
+
+// }
 
 
 
@@ -335,7 +402,7 @@ if(loadermain === true)
     <CSVLink style={{padding: '6.5px 35px',}} {...csvReport} className="b1">Download</CSVLink>
         <button style={{
           width: "175px",
-          marginRight: '18px'
+          
         }} className="b2"><Link style={{all: 'unset', cursor: 'pointer'}} to="/products" onClick={()=>{setAddtIsOpen(true);}} >Add New Product </Link></button>
       </div>
     </div>
@@ -344,6 +411,7 @@ if(loadermain === true)
   <thead>
     <tr>
       <th></th>
+      <th>Product Image</th>
       <th>Donut Name</th>
       <th>Description</th>
       <th>Price</th>
@@ -446,8 +514,38 @@ if(loadermain === true)
       <Modal.Footer>
         <Button variant="secondary" onClick={()=>{setAddtIsOpen(false)}}>Close</Button>
         <Button style={{backgroundColor: '#FF8AA5', border:'none'}} onClick={()=>{AddApi()}} >Add</Button>
+        {/* <Button style={{backgroundColor: '#FF8AA5', border:'none'}} onClick={()=>{setAddCategory(true)}} >Add Category</Button> */}
       </Modal.Footer>
     </Modal>
+
+    {/* <Modal
+      show={addcategory}
+      onHide={()=>{setAddCategory(false)}}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+      >
+      <Modal.Header closeButton>
+        <Modal.Title>Add New Category</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+      <Form>
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Category Name</Form.Label>
+            <Form.Control
+              value={addcategorydata.categoryName}
+              name="categoryName"
+              type="text"
+              onChange={handleAddCategory}
+            />
+          </Form.Group>
+      </Form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={()=>{setAddtIsOpen(false)}}>Close</Button>
+        <Button style={{backgroundColor: '#FF8AA5', border:'none'}} onClick={()=>{AddCategoryApi()}} >Add</Button>
+      </Modal.Footer>
+    </Modal> */}
 
 
 

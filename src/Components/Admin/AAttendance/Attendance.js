@@ -156,7 +156,7 @@ else
                 {
                   width: '150px',
                 }
-              } className="mx-3 pBut" disabled onClick={() => {setRerender(!rerender) }} >
+              } className="pButMr0" disabled onClick={() => {setRerender(!rerender) }} >
                   Confirm
               </button> 
               :
@@ -164,7 +164,7 @@ else
                 {
                   width: '150px',
                 }
-              } className="mx-3 pBut" onClick={() => {setRerender(!rerender) }} >
+              } className=" pButMr0" onClick={() => {setRerender(!rerender) }} >
                   Confirm
               </button> 
                 

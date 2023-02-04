@@ -19,7 +19,7 @@ import bykea from '../../../Assets/Dashboard_SVGs/Bykea.png'
 import pandago from '../../../Assets/Dashboard_SVGs/PandaGo.png'
 import overalll from '../../../Assets/Dashboard_SVGs/sales.svg'
 
-import Notifications from '../../../Assets/Dashboard_SVGs/notification.svg'
+import Notifications from '../../../Assets/Dashboard_SVGs/side notification icon.svg'
 
 
 import React, { useEffect, useState } from 'react'

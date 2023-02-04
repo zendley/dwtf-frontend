@@ -291,6 +291,7 @@ export default function RequestableAcc() {
         <th>Sr.No</th>
         <th>Item Name</th>
         <th>Date Added</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>

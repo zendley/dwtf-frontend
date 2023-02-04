@@ -287,9 +287,9 @@ export default function AddProd() {
                     }
                     else
                     {   
-                        console.log('-------------------------')
+                        console.log('-------------------------*******')
                         console.log(response.data)
-                        console.log('--------------------------')
+                        console.log('--------------------------*******')
                         setSshowWarningAlert(true)
                         setRerender(!rerender);
                         setSubmitButtShow(true);
@@ -334,7 +334,9 @@ export default function AddProd() {
                 }
                 else
                 {   
+                    console.log('!!!!!!!!!!!!!!!!!!!!!!!!')
                     console.log(response.data)
+                    console.log('!!!!!!!!!!!!!!!!!!!!!!!!')
                     
                     setSshowWarningAlert(false)
                     setRerender(!rerender);
@@ -499,7 +501,7 @@ export default function AddProd() {
         for(let i=3;i<columns.length;i++){
 
             if(!isNaN(row[columns[i].dataField]) && row[columns[i].dataField].toString().indexOf('.') != -1 && row[columns[i].dataField] !=0){
-                style.backgroundColor = 'red';
+                style.backgroundColor = '#824343';
                 // setDecimalWarning('true')
                 setSshowWarningAlert(true)
             }
@@ -508,7 +510,7 @@ export default function AddProd() {
 
         for (let i = 0; i < red.length; i++) {
             if (row.id === red[i]) {
-                style.backgroundColor = 'red';
+                style.backgroundColor = '#824343';
               }
         }
 

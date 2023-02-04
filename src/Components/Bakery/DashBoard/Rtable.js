@@ -72,6 +72,8 @@ export default function Rtable() {
     const [decimalwarning, setDecimalWarning] = useState(false)
     const [productions, setProductions] = useState('')
     const [production_no, setProduction_no] = useState('os')
+    const [new_production, setNewProduction] = useState()
+
 
     const [inputFields, setInputFields] = useState([
         {flavour: '', quantity: ''},
@@ -182,8 +184,11 @@ export default function Rtable() {
             setIsRed(res.data.isRed);
             setIsSUBMIT(res.data.isSubmit);
             setProductions(res.data.productions);
+            console.log('``````````````````````````````')
 
-            console.log(res.data)
+            console.log(res.data.data.data)
+            setNewProduction(JSON.parse(res.data.data.data))
+            // console.log(new_production)
             
         });     
         
@@ -199,6 +204,7 @@ export default function Rtable() {
         ).then(async (res) => {
         // setTable(res.data);
         var col = [];
+        console.log('========================');
         console.log(res.data)
         for (let i = 0; i < res.data.length; i++) {
             var data = {
@@ -298,6 +304,7 @@ export default function Rtable() {
         }
         else
         {
+            
             setLoaderMain(true);
             const url = BakeryDataEdit
                 axios.post(url, {
@@ -318,9 +325,10 @@ export default function Rtable() {
                     else
                     {   
                         // console.log(response.data)
-                        console.log('**************************')
+                        console.log('**************************1')
                         console.log(response.data)
-                        console.log('*************************')
+                        console.log('*************************1')
+                        // setData(response.data.data);
                         setSshowWarningAlert(true)
                         setRerender(!rerender); 
                         setSubmitButtShow(true);
@@ -344,8 +352,21 @@ export default function Rtable() {
         {
             alert('Production limit has been exceeded.')
         }
+
         else
         {
+            
+            
+            for(var i = 0 ; i<new_production.length;i++){
+                console.log(new_production[i].quantity)
+                console.log(new_production[i].sum)
+                if(parseInt(new_production[i].quantity) !== parseInt(new_production[i].sum)){
+                    alert('Dounts quantity and total sum must be equal.')
+                    return false
+                }
+            }
+
+            
             setLoaderMain(true);
 
             const url = Submit;
@@ -363,7 +384,9 @@ export default function Rtable() {
                 }
                 else
                 {   
-                    // console.log(response.data)
+                    console.log('22222222222222222')
+                    console.log(response.data)
+                    console.log('22222222222222222')
                     
                     setSshowWarningAlert(false)
                     setRerender(!rerender);
@@ -398,6 +421,8 @@ export default function Rtable() {
 
 
                     // for(var i = 0 ; i <= list.length; i++)
+
+                    
                     // {
                         writeUserData(list);
                     // }                   
@@ -559,12 +584,22 @@ export default function Rtable() {
   
         const style = {};
         
-            
+        if(submitbuttshow){
+            if(row['quantity']!=row['sum']){
+                style.backgroundColor = '#824343';
+                // alert('test')
+            }
+        }
+        
             
             for(let i=3;i<columns.length;i++){
-
+                
+                // if(row[columns[i].quantity] !=row[columns[i].sum]){
+                //     alert('test')
+                // }
                 if(!isNaN(row[columns[i].dataField]) && row[columns[i].dataField].toString().indexOf('.') != -1 && row[columns[i].dataField] !=0){
-                    style.backgroundColor = 'red';
+                    style.backgroundColor = '#824343';
+                    style.color = '#FFF';
                     // setDecimalWarning('true')
                     setSshowWarningAlert(true)
                 }
@@ -586,7 +621,8 @@ export default function Rtable() {
        
         for (let i = 0; i < red.length; i++) {
             if (row.id === red[i]) {
-                style.backgroundColor = 'red';
+                style.backgroundColor = '#824343';
+                
               }
         }
 
@@ -718,7 +754,7 @@ export default function Rtable() {
                 </div>
 
 
-            <div className="row"
+            <div className="row "
             style={
                 {
                     marginTop: '15px',
@@ -801,6 +837,7 @@ export default function Rtable() {
                                     }>
                                         Production {i+1}
                                     </div>
+                                    
 
                                     :
 
@@ -823,11 +860,15 @@ export default function Rtable() {
                                     </div>
                                 }
                                 </Link>
+                                
                         </div>
                         )}
+                        
+                        
                     
 
-                
+                        
+                                  
 
             </div>
             

@@ -156,7 +156,7 @@ export default function History() {
     else{
         return (
             <>
-                <div style={{marginTop: '10px'}} className="kiosk">
+                <div style={{marginTop: '10px',overflowX:'scroll',overflowY:'hidden', marginBottom:'15px'}} className="kiosk">
                     
                     <div style={{textAlignLast: 'center',}} className="top">
                       <h4 style={{color: '#463B3B'}}>

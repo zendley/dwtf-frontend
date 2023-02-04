@@ -214,7 +214,8 @@ export default function AccessReq() {
 
                               {tabl.Data.items.map((table, index)=>{
                                 return(
-                                    <div>{table.Item_Name} ({table.Quantity}),</div>
+                                    table.Quantity==0?'':<div>{table.Item_Name} ({table.Quantity}),</div>
+                                    
                                 )})
                               }
 

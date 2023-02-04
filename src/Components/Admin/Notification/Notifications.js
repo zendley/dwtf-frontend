@@ -108,7 +108,7 @@ if(loadermain === true)
                         Notifications
                       </h4>
                       
-                      {props.NoUnReadNoti?<button onClick={handleNotification}>read all</button>:''}
+                      {props.NoUnReadNoti?<button className="pButMr0" onClick={handleNotification}>read all</button>:''}
                     </div>
                     
                     <table className="tablee">
@@ -131,7 +131,9 @@ if(loadermain === true)
                         <td>{tabl.cate}</td>
                         <td>{tabl.type}</td>
                         <td>{tabl.desc}</td>
-                        <td>{tabl.date}</td>
+                        <td style={{
+                          fontSize:'10px',
+                        }}>{tabl.date_time}</td>
                       </tr>
                       );
                     })}
