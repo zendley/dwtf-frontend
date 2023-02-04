@@ -66,7 +66,7 @@ export default function Products() {
           );
 
           var res = response.data.data;
-
+          console.log('test')
           setTable(res);
           // console.log('================')
           // console.log(setCategory(''))
