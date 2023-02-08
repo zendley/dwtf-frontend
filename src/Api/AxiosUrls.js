@@ -106,4 +106,5 @@ export const OverAll = '/admin/salechannel/overall/get';
 //settings
 export const ChangePass = '/admin/settings/change/pass';
 
+export const getBatchPrice = '/admin/settings/getbatch';
 export const ChangeBatchPrice = '/admin/settings/changebatch';

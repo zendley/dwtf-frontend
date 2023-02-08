@@ -8,6 +8,10 @@ import History from '../../../Assets/Dashboard_SVGs/history.svg'
 import Notifications from '../../../Assets/Dashboard_SVGs/side notification icon.svg'
 import logout from '../../../Assets/Dashboard_SVGs/logout.svg'
 import livestatus from '../../../Assets/Dashboard_SVGs/livestatus.svg'
+import Inventory from '../../../Assets/Dashboard_SVGs/Inventory.svg'
+import Accessories from '../../../Assets/Dashboard_SVGs/Accessories.svg'
+import Accessories_Request from '../../../Assets/Dashboard_SVGs/Accessories Request.svg'
+import Add_new_accessories from '../../../Assets/Dashboard_SVGs/Add new accessories.svg'
 
 import React, { useEffect, useState } from 'react'
 
@@ -71,6 +75,48 @@ export default function Sidebar(props) {
               History
             </li>
             </NavLink>
+
+            <NavLink to="/inventory/fixed" className="link">
+                <li className={window.location.pathname === "/inventory/fixed" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
+                    <span className="ico">
+                        <img className="sico" src={Inventory} alt="" />
+                    </span>
+                  Inventory
+                  
+                </li>
+                </NavLink>
+
+                <NavLink to="/inventory" className="link">
+                <li className={window.location.pathname === "/inventory" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
+                    <span className="ico">
+                        <img className="sico" src={Accessories} alt="" />
+                    </span>
+                  Accessories
+                  
+                </li>
+                </NavLink>
+
+                <NavLink to="/inventory/requestable" className="link">
+                <li className={window.location.pathname === "/inventory/requestable" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
+                    <span className="ico">
+                        <img className="sico" src={Add_new_accessories} alt="" />
+                    </span>
+                    Add New Accessories
+                  
+                </li>
+                </NavLink>
+                
+                <NavLink to="/inventory/requested" className="link">
+                <li className={window.location.pathname === "/inventory/requested" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
+                    <span className="ico">
+                        <img className="sico" src={Accessories_Request} alt="" />
+                    </span>
+                    Accessories Request
+                  
+                </li>
+                </NavLink>
+
+
             <NavLink to="/notifications" className="link">
             <li className={window.location.pathname === "/notifications" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{props.getUnreadNoti(token)}}>
                 <span className="ico">

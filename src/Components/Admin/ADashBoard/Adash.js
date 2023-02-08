@@ -400,13 +400,13 @@ export default function Adash() {
             <div className="row">
               <div style={{paddingLeft:'60px', alignSelf:'center'}} className="col-6">
                 <div>
-                  <p style={{margin:'0px', padding:'0px'}}><span style={{backgroundColor: '#463B3B'}} className="dot"></span> Kiosk Sales</p>
+                  <p style={{margin:'0px', padding:'0px'}}><span style={{backgroundColor: '#FF8AA5'}} className="dot"></span> Kiosk Sales</p>
                 </div>
                 <div>
-                  <p style={{margin:'0px', padding:'0px'}}><span style={{backgroundColor: '#fe3261'}} className="dot"></span> FoodPanda Sales</p> 
+                  <p style={{margin:'0px', padding:'0px'}}><span style={{backgroundColor: '#463B3B'}} className="dot"></span> FoodPanda Sales</p> 
                 </div>
                 <div>
-                  <p style={{margin:'0px', padding:'0px'}}><span style={{backgroundColor: '#FF8AA5'}} className="dot"></span> Online Sales</p>
+                  <p style={{margin:'0px', padding:'0px'}}><span style={{backgroundColor: '#fe3261'}} className="dot"></span> Online Sales</p>
                 </div>
               </div>
 

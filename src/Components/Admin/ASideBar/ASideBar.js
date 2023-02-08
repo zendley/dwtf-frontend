@@ -18,6 +18,9 @@ import baskyt from '../../../Assets/Dashboard_SVGs/Baskyt.png'
 import bykea from '../../../Assets/Dashboard_SVGs/Bykea.png'
 import pandago from '../../../Assets/Dashboard_SVGs/PandaGo.png'
 import overalll from '../../../Assets/Dashboard_SVGs/sales.svg'
+import Accessories from '../../../Assets/Dashboard_SVGs/Accessories.svg'
+import Accessories_Request from '../../../Assets/Dashboard_SVGs/Accessories Request.svg'
+import Add_new_accessories from '../../../Assets/Dashboard_SVGs/Add new accessories.svg'
 
 import Notifications from '../../../Assets/Dashboard_SVGs/side notification icon.svg'
 
@@ -185,7 +188,7 @@ export default function ASideBar(props) {
                 <NavLink to="/inventory" className="link">
                 <li className={window.location.pathname === "/inventory" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
-                        <img className="sico" src={Inventory} alt="" />
+                        <img className="sico" src={Accessories} alt="" />
                     </span>
                   Accessories
                   
@@ -195,7 +198,7 @@ export default function ASideBar(props) {
                 <NavLink to="/inventory/requestable" className="link">
                 <li className={window.location.pathname === "/inventory/requestable" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
-                        <img className="sico" src={Inventory} alt="" />
+                        <img className="sico" src={Add_new_accessories} alt="" />
                     </span>
                     Add New Accessories
                   
@@ -205,7 +208,7 @@ export default function ASideBar(props) {
                 <NavLink to="/inventory/requested" className="link">
                 <li className={window.location.pathname === "/inventory/requested" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
-                        <img className="sico" src={Inventory} alt="" />
+                        <img className="sico" src={Accessories_Request} alt="" />
                     </span>
                     Accessories Request
                   

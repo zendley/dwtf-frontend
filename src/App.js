@@ -10,10 +10,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import bg from "./Assets/Images/bg.png";
 
+
+//Bakery
 import Sidebar from "./Components/Bakery/SideBar/Sidebar";
 import Topbar from "./Components/Bakery/Topbar/Topbar";
 import Rtable from "./Components/Bakery/DashBoard/Rtable";
 import Login from "./Components/Auth/Login/Login";
+
+import Index from "./Components/Auth/Index/Index";
+import Register from "./Components/Auth/Register/Register";
+import SetPerct from "./Components/Bakery/SetPerct/SetPerct";
+import History from "./Components/Bakery/History/History";
+import Notifications from "./Components/Bakery/Notifications/Notifications";
+import LiveStatus from "./Components/Bakery/LiveStatus/LiveStatus";
+import AddProd from "./Components/Bakery/DashBoard/AddProd";
+// import BakeryInventory from "./Components/Bakery/Inventory/Inventory";
+
+
+//Admin
 import ATopBar from "./Components/Admin/ATopBar/ATopBar";
 import ASideBar from "./Components/Admin/ASideBar/ASideBar";
 import Adash from "./Components/Admin/ADashBoard/Adash";
@@ -23,13 +37,6 @@ import Attendance from "./Components/Admin/AAttendance/Attendance";
 import Inventory from "./Components/Admin/AInventory/Inventory";
 import Products from "./Components/Admin/AProducts/Products";
 import Settings from "./Components/Admin/ASettings/Settings";
-import Index from "./Components/Auth/Index/Index";
-import Register from "./Components/Auth/Register/Register";
-import SetPerct from "./Components/Bakery/SetPerct/SetPerct";
-import History from "./Components/Bakery/History/History";
-import Notifications from "./Components/Bakery/Notifications/Notifications";
-import ANotifications from "./Components/Admin/Notification/Notifications";
-
 import SKiosk from "./Components/Admin/ASaleChannel/Kiosk";
 import SFoodPanda from "./Components/Admin/ASaleChannel/FoodPanda";
 import SOnlineSale from "./Components/Admin/ASaleChannel/OnlineSale";
@@ -42,8 +49,8 @@ import PandaGo from "./Components/Admin/ASaleChannel/PandaGo";
 import Basket from "./Components/Admin/ASaleChannel/Basket";
 import Bykea from "./Components/Admin/ASaleChannel/Bykea";
 import Overall from "./Components/Admin/ASaleChannel/Overall";
-import LiveStatus from "./Components/Bakery/LiveStatus/LiveStatus";
-import AddProd from "./Components/Bakery/DashBoard/AddProd";
+import ANotifications from "./Components/Admin/Notification/Notifications";
+
 
 import { getFirebaseToken, onForegroundMessage} from './firebase';
 import { getDatabase, ref, set } from "firebase/database";
@@ -176,6 +183,12 @@ function App() {
                   <Route path="/live_status" element = {<LiveStatus/>}></Route>
                   <Route path="/set_percentage" element = {<SetPerct/>}></Route>
                   <Route path="/history" element = {<History />}></Route>
+                  <Route path="/inventory/fixed" element = {<Finv />}></Route>
+                  <Route path="/inventory/fixed/assign" element = {<FAssignInv />}></Route>
+                  <Route path="/inventory" element = {<Inventory />}></Route>
+                  <Route path="/inventory/requestable" element = {<RequestableAcc />}></Route>
+                  <Route path="/inventory/Assign" element = {<AssignInv />}></Route>
+                  <Route path="/inventory/requested" element = {<AccessReq />}></Route>
                   <Route path="/notifications" element = {<Notifications getUnreadNoti = {getUreadNoti} NoUnReadNoti = {unreadnotification} />}></Route>
                 </Routes>
             </div>
