@@ -21,6 +21,7 @@ import overalll from '../../../Assets/Dashboard_SVGs/sales.svg'
 import Accessories from '../../../Assets/Dashboard_SVGs/Accessories.svg'
 import Accessories_Request from '../../../Assets/Dashboard_SVGs/Accessories Request.svg'
 import Add_new_accessories from '../../../Assets/Dashboard_SVGs/Add new accessories.svg'
+import damaged_package from '../../../Assets/Dashboard_SVGs/damaged-package.svg'
 
 import Notifications from '../../../Assets/Dashboard_SVGs/side notification icon.svg'
 
@@ -171,7 +172,7 @@ export default function ASideBar(props) {
                 <NavLink to="/salechannel/demage" className="link">
                 <li className={window.location.pathname === "/salechannel/demage" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                     <span className="ico">
-                        <img className="sico" src={Online_Sale} alt="" />
+                        <img className="sico" src={damaged_package} alt="" />
                     </span>
                   Damage & Lost
                 </li>
