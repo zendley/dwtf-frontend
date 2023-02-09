@@ -49,6 +49,7 @@ import PandaGo from "./Components/Admin/ASaleChannel/PandaGo";
 import Basket from "./Components/Admin/ASaleChannel/Basket";
 import Bykea from "./Components/Admin/ASaleChannel/Bykea";
 import Overall from "./Components/Admin/ASaleChannel/Overall";
+import Demage from "./Components/Admin/ASaleChannel/Demage";
 import ANotifications from "./Components/Admin/Notification/Notifications";
 
 
@@ -225,6 +226,7 @@ function App() {
                   <Route path="/salechannel/basket" element = {<Basket />}></Route>
                   <Route path="/salechannel/bykea" element = {<Bykea />}></Route>
                   <Route path="/salechannel/overall" element = {<Overall />}></Route>
+                  <Route path="/salechannel/demage" element = {<Demage />}></Route>
                   <Route path="/inventory/fixed" element = {<Finv />}></Route>
                   <Route path="/inventory/fixed/assign" element = {<FAssignInv />}></Route>
                   <Route path="/inventory" element = {<Inventory />}></Route>

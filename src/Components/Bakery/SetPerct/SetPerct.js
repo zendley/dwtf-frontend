@@ -189,7 +189,7 @@ export default function SetPerct() {
              
               <div style={{alignItems: 'center',}} className="buttons d-flex">
           
-                <button onClick={handleClear } className="pBut">
+                <button onClick={handleClear } className="pButMr0" style={{marginRight:'5px'}}>
                   Clear
                 </button>
               </div>

@@ -108,7 +108,7 @@ if(loadermain === true)
                         Notifications
                       </h4>
                       
-                      {props.NoUnReadNoti?<button className="pButMr0" onClick={handleNotification}>read all</button>:''}
+                      {props.NoUnReadNoti?<button className="pButMr0" style={{marginRight:'15px'}} onClick={handleNotification}>read all</button>:''}
                     </div>
                     
                     <table className="tablee">

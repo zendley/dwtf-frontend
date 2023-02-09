@@ -102,6 +102,7 @@ export const SaleBaskyt = '/admin/salechannel/baskyt/get';
 export const SalePandaGo = '/admin/salechannel/pandago/get';
 export const SaleBykea = '/admin/salechannel/bykea/get';
 export const OverAll = '/admin/salechannel/overall/get';
+export const Demage = '/admin/salechannel/demagelost/get';
 
 //settings
 export const ChangePass = '/admin/settings/change/pass';

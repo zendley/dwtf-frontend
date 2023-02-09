@@ -135,6 +135,7 @@ export default function ASideBar(props) {
                   Online Sale
                 </li>
                 </NavLink>
+                
                 {/* <NavLink to="/salechannel/panda_go" className="link">
                 <li className={window.location.pathname === "/salechannel/panda_go" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender)}}>
                     <span className="ico">
@@ -165,6 +166,14 @@ export default function ASideBar(props) {
                         <img className="sico" src={overalll} alt="" />
                     </span>
                   Overall Sales
+                </li>
+                </NavLink>
+                <NavLink to="/salechannel/demage" className="link">
+                <li className={window.location.pathname === "/salechannel/demage" ? 'sidebarListItem subitem active' : "sidebarListItem subitem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
+                    <span className="ico">
+                        <img className="sico" src={Online_Sale} alt="" />
+                    </span>
+                  Damage & Lost
                 </li>
                 </NavLink>
                 </>

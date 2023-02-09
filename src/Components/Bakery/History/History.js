@@ -127,11 +127,11 @@ export default function History() {
                         />
                          {
                           checkDate === startDate ? 
-                        <button className="mx-3 pBut" disabled onClick={() => {setRerender(!rerender) }} >
+                        <button className=" pButMr0" disabled onClick={() => {setRerender(!rerender) }} >
                             Confirm
                         </button> 
                         :
-                        <button className="mx-3 pBut" onClick={() => {setRerender(!rerender) }} >
+                        <button className=" pButMr0" onClick={() => {setRerender(!rerender) }} >
                             Confirm
                         </button> 
                          
@@ -173,11 +173,11 @@ export default function History() {
 
                         {
                           checkDate === startDate ? 
-                        <button className="mx-3 pBut" disabled onClick={() => {setRerender(!rerender) }} >
+                        <button className=" pButMr0" disabled onClick={() => {setRerender(!rerender) }} >
                             Confirm
                         </button> 
                         :
-                        <button className="mx-3 pBut" onClick={() => {setRerender(!rerender) }} >
+                        <button className=" pButMr0" onClick={() => {setRerender(!rerender) }} >
                             Confirm
                         </button> 
                          

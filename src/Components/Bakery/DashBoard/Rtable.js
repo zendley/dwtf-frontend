@@ -417,7 +417,7 @@ export default function Rtable() {
                 else
                 {   
                     var list = response.data;
-                    console.log(list.length)
+                    // console.log(list.length)
 
 
                     // for(var i = 0 ; i <= list.length; i++)
@@ -438,6 +438,7 @@ export default function Rtable() {
 
     
     function writeUserData(list) {
+        
         var date1 = new Date().getHours();
         var date2 = new Date().getMinutes();
         var date3 = new Date().getSeconds();
@@ -735,7 +736,7 @@ export default function Rtable() {
                     {
                         props =>
                         <>
-                        <ExportCSVButton className="pBut" { ...props.csvProps }> <span><img style={{height: '10px', marginRight: '5px', marginLeft: '10px'}} src={download} alt="" /></span> Download</ExportCSVButton>
+                        <ExportCSVButton className="pButMr0" { ...props.csvProps }> <span><img style={{height: '10px', marginRight: '5px', marginLeft: '10px'}} src={download} alt="" /></span> Download</ExportCSVButton>
                         
                     
                         <div style={{display: 'none'}}>

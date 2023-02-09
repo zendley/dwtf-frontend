@@ -12,7 +12,6 @@ var tok = localStorage.getItem('token')
 var token = 'Bearer ' + tok;
 
 
-
 export default function Notifications(props) {
 
   const [table, setTable] = useState([]);
@@ -109,7 +108,7 @@ if(loadermain === true)
                         Notifications
                       </h4>
 
-                      {props.NoUnReadNoti?<button onClick={handleNotification} className="pBut">read all</button>:''}
+                      {props.NoUnReadNoti?<button onClick={handleNotification} className="pButMr0" style={{marginRight:'15px'}}>read all</button>:''}
         
                     </div>
                     
