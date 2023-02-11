@@ -241,8 +241,8 @@ export default function ASideBar(props) {
                     </span>
                   Settings
                 </li>
-                <NavLink to="/admin/notifications" className="link">
-            <li className={window.location.pathname === "/admin/notifications" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
+                <NavLink to="/notifications" className="link">
+            <li className={window.location.pathname === "/notifications" ? 'sidebarListItem active' : "sidebarListItem"} onClick={()=>{setRerender(!rerender);props.getUnreadNoti(token)}}>
                 <span className="ico">
                     <img className="sico" src={Notifications} alt="" />
                 </span>

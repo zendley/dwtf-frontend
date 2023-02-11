@@ -235,7 +235,7 @@ function App() {
                   <Route path="/inventory/requested" element = {<AccessReq />}></Route>
                   <Route path="/products" element = {<Products />}></Route>
                   <Route path="/settings" element = {<Settings />}></Route>
-                  <Route path="/admin/notifications" element = {<ANotifications getUnreadNoti = {getUreadNoti} NoUnReadNoti = {unreadnotification}/> }></Route>
+                  <Route path="/notifications" element = {<ANotifications getUnreadNoti = {getUreadNoti} NoUnReadNoti = {unreadnotification}/> }></Route>
                 </Routes>
             </div>
 

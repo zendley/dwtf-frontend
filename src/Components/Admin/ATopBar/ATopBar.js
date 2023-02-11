@@ -112,7 +112,7 @@ export default function ATopBar(props) {
                 
                 <div style={{
                   width: '200px',
-                  height: '240px',
+                  height: 'fit-content',
                   position: 'relative',
                   left: '85%',
                   background: 'white',
@@ -186,6 +186,9 @@ export default function ATopBar(props) {
                   }
                   
                 })}
+                {
+                  data.length? <div className="d-flex align-item-center justify-content-center"><Link to={"/notifications"} onClick={()=>{setNotiIsOpen(false)}}>see all</Link></div>:''
+                }
                 
                 
 

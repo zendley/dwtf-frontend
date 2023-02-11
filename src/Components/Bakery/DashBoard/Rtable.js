@@ -162,7 +162,7 @@ export default function Rtable() {
     const getData = async () => {
         setLoaderMain(true)
         rp = remainingProd;
-        console.log(production_no)
+       
         // console.log(rp);
        await axios.post(BakeryData,
             {
@@ -184,11 +184,22 @@ export default function Rtable() {
             setIsRed(res.data.isRed);
             setIsSUBMIT(res.data.isSubmit);
             setProductions(res.data.productions);
-            console.log('``````````````````````````````')
-
-            console.log(res.data.data.data)
+            
             setNewProduction(JSON.parse(res.data.data.data))
-            // console.log(new_production)
+           
+
+            let quant = 0;
+
+            for (let i = 0; i < da.length; i++)
+            {
+                var val = da[i].quantity;
+                let num = parseInt(val, 10);
+                // console.log(num);
+                quant = quant + num;
+                
+            }
+
+            setRemainingProd(res.data.data.total_prod - quant)
             
         });     
         
@@ -204,8 +215,7 @@ export default function Rtable() {
         ).then(async (res) => {
         // setTable(res.data);
         var col = [];
-        console.log('========================');
-        console.log(res.data)
+        
         for (let i = 0; i < res.data.length; i++) {
             var data = {
                 'text': res.data[i].perct_to_divide != null ? res.data[i].text  + ' (' + res.data[i].perct_to_divide + '%)': res.data[i].text,
@@ -324,10 +334,7 @@ export default function Rtable() {
                     }
                     else
                     {   
-                        // console.log(response.data)
-                        console.log('**************************1')
-                        console.log(response.data)
-                        console.log('*************************1')
+                        
                         // setData(response.data.data);
                         setSshowWarningAlert(true)
                         setRerender(!rerender); 
@@ -358,8 +365,7 @@ export default function Rtable() {
             
             
             for(var i = 0 ; i<new_production.length;i++){
-                console.log(new_production[i].quantity)
-                console.log(new_production[i].sum)
+                
                 if(parseInt(new_production[i].quantity) !== parseInt(new_production[i].sum)){
                     alert('Dounts quantity and total sum must be equal.')
                     return false
@@ -384,9 +390,7 @@ export default function Rtable() {
                 }
                 else
                 {   
-                    console.log('22222222222222222')
-                    console.log(response.data)
-                    console.log('22222222222222222')
+                   
                     
                     setSshowWarningAlert(false)
                     setRerender(!rerender);
@@ -444,7 +448,7 @@ export default function Rtable() {
         var date3 = new Date().getSeconds();
         var datet = date.concat(date1, date2, date3);
         var list_cnt = list.length;
-        console.log(datet);
+        
         const db = getDatabase();
         set(ref(db, 'notification/' + datet), {
             'date': datet,
@@ -455,7 +459,7 @@ export default function Rtable() {
 
 
     const handleBeforeSave = () => {
-        // console.log("before Save Run");
+       
         setRerender2(!rerender); 
         
     }
@@ -477,9 +481,9 @@ export default function Rtable() {
         {
             var val = data[i].quantity;
             let num = parseInt(val, 10);
-            // console.log(num);
             quant = quant + num;
         }
+        
 
         setRemainingProd(totalProd - quant)
 
@@ -502,7 +506,7 @@ export default function Rtable() {
               );
     
               var list = res.data;
-            //   console.log(res.data)
+            
     
               setFlavList(list);
     
@@ -567,7 +571,7 @@ export default function Rtable() {
                 }
                 else
                 {   
-                    console.log(response.data)
+                    
                     setFrom('Select From')
                     setTo('Select To')
                     setMovementIsOpen(false);
@@ -587,7 +591,7 @@ export default function Rtable() {
         
         if(submitbuttshow){
             if(row['quantity']!=row['sum']){
-                style.backgroundColor = '#824343';
+                style.backgroundColor = '#c2172e';
                 // alert('test')
             }
         }
@@ -599,7 +603,7 @@ export default function Rtable() {
                 //     alert('test')
                 // }
                 if(!isNaN(row[columns[i].dataField]) && row[columns[i].dataField].toString().indexOf('.') != -1 && row[columns[i].dataField] !=0){
-                    style.backgroundColor = '#824343';
+                    style.backgroundColor = '#c2172e';
                     style.color = '#FFF';
                     // setDecimalWarning('true')
                     setSshowWarningAlert(true)
@@ -622,7 +626,7 @@ export default function Rtable() {
        
         for (let i = 0; i < red.length; i++) {
             if (row.id === red[i]) {
-                style.backgroundColor = '#824343';
+                style.backgroundColor = '#c2172e';
                 
               }
         }
@@ -670,7 +674,7 @@ export default function Rtable() {
       const handleproduction_no = (val) => {
       
         setProduction_no(val);
-        console.log(val)
+        // console.log(val)
         setRerender(!rerender);
   
   
@@ -745,6 +749,15 @@ export default function Rtable() {
                         </>
                     }
                 </ToolkitProvider>
+                {isSubmit=== true ? '':
+                <div className="float-end">
+                <Link to="/new_production" >
+                <button className="pBut">
+                    Add New Production
+                </button>
+                </Link>
+                </div> }
+                
                         
                         {/* <button style={{width:'140px'}} onClick={()=>{setMovementIsOpen(true);} } className="pBut">
                           <span>
@@ -960,14 +973,14 @@ export default function Rtable() {
 
 
           </div> 
-          : 
-          <div className="float-end">
-            <Link to="/new_production" >
-            <button className="pBut">
-                Add New Production
-            </button>
-            </Link>
-          </div>
+          : ''
+        //   <div className="float-end">
+        //     <Link to="/new_production" >
+        //     <button className="pBut">
+        //         Add New Production
+        //     </button>
+        //     </Link>
+        //   </div>
 
 
           }

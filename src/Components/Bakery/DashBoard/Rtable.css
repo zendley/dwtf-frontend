@@ -65,3 +65,15 @@ input::-webkit-inner-spin-button {
         text-align: center;
         width: 100px;
 }
+/* .table-body-height{
+    height: 300px !important;
+    overflow-y: scroll;
+}
+.production-table{
+    height: 500px !important;
+    background-color: red;
+} */
+.react-bootstrap-table {
+    max-height: 65vh !important;
+    overflow-y: scroll;
+  }

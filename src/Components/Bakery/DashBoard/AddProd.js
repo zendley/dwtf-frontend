@@ -67,6 +67,7 @@ export default function AddProd() {
     const [showwarningalert, setSshowWarningAlert] = useState(false)
     const [warningmesg, setWarningMesg] = useState('Kindly submit assigned donuts')
     const [submitbuttshow, setSubmitButtShow] = useState(false)
+    const [new_production, setNewProduction] = useState()
 
     const [inputFields, setInputFields] = useState([
         {flavour: '', quantity: ''},
@@ -154,6 +155,7 @@ export default function AddProd() {
             console.log(res.data)
             // console.log(res.remaining)
             setLastRemaining(res.data.remaining)
+            setNewProduction(JSON.parse(res.data.data.data))
             
         });     
         
@@ -315,6 +317,14 @@ export default function AddProd() {
         }
         else
         {
+            for(var i = 0 ; i<new_production.length;i++){
+                console.log(new_production[i].quantity)
+                console.log(new_production[i].sum)
+                if(parseInt(new_production[i].quantity) !== parseInt(new_production[i].sum)){
+                    alert('Dounts quantity and total sum must be equal.')
+                    return false
+                }
+            }
             setLoaderMain(true);
 
             
@@ -394,6 +404,11 @@ export default function AddProd() {
             // console.log(num);
             quant = quant + num;
         }
+        console.log(totalProd)
+        // if(totalProd===''){
+        //     console.log('test')
+        //     // setTotalProd(0)
+        // }
 
         setRemainingProd((parseInt(totalProd) + lastRemaining) - quant)
 
@@ -497,11 +512,18 @@ export default function AddProd() {
 
     const rowStyle2 = (row, rowIndex) => {
         const style = {};
+
+        if(submitbuttshow){
+            if(row['quantity']!=row['sum']){
+                style.backgroundColor = '#c2172e';
+                // alert('test')
+            }
+        }
         
         for(let i=3;i<columns.length;i++){
 
             if(!isNaN(row[columns[i].dataField]) && row[columns[i].dataField].toString().indexOf('.') != -1 && row[columns[i].dataField] !=0){
-                style.backgroundColor = '#824343';
+                style.backgroundColor = '#c2172e';
                 // setDecimalWarning('true')
                 setSshowWarningAlert(true)
             }
@@ -510,7 +532,7 @@ export default function AddProd() {
 
         for (let i = 0; i < red.length; i++) {
             if (row.id === red[i]) {
-                style.backgroundColor = '#824343';
+                style.backgroundColor = '#c2172e';
               }
         }
 
@@ -600,6 +622,7 @@ export default function AddProd() {
                     :        
                     ""   
                     }
+                    
                     {/* <h1>test</h1> */}
                         
 
@@ -711,14 +734,14 @@ export default function AddProd() {
             }
 
           </div> 
-          : 
-          <div className="float-end">
-            <Link to="/new_production" >
-            <button className="pBut">
-                Add New Production
-            </button>
-            </Link>
-          </div>
+          : ''
+        //   <div className="float-end">
+        //     <Link to="/new_production" >
+        //     <button className="pBut">
+        //         Add New Production
+        //     </button>
+        //     </Link>
+        //   </div>
 
 
           }

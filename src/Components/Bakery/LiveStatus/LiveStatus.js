@@ -245,6 +245,7 @@ export default function LiveStatus() {
 
         style.textAlign = "center";
         style.verticalAlign = "middle"
+        // style.backgroundColor ="red"
 
         
         return style;
@@ -327,6 +328,7 @@ export default function LiveStatus() {
                         hover
                         condensed
                         rowStyle={ rowStyle2 }
+                        
                         
                         
                         />

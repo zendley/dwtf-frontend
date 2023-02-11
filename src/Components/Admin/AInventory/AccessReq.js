@@ -211,13 +211,25 @@ export default function AccessReq() {
                                   }
                               }>
                               {/* {tabl.Date} */}
+                              <div className='col-12 d-flex justify-content-between '>
+                              <div >
+                                {tabl.Data.items.map((table, index)=>{
+                                    return(
+                                        table.Quantity==0?'':<span> {table.Item_Name} ({table.Quantity}),</span>
+                                        
+                                    )})
+                                }
+                                </div>
+                                <div className="buttons">
+          
+                                {/* <button className="b1">Download</button> */}
+                                <Link to={"/inventory/Assign"} >
+                                    <button style={{width:'80px',marginRight:'10px'}}  className="b2">Assign</button>
+                                </Link>
+                                </div>
+                              </div>
 
-                              {tabl.Data.items.map((table, index)=>{
-                                return(
-                                    table.Quantity==0?'':<div>{table.Item_Name} ({table.Quantity}),</div>
-                                    
-                                )})
-                              }
+                              
 
                               {/* Gloves ({list[index].Data.gloves}),
                               Boxes ({list[index].Data.boxes}),
