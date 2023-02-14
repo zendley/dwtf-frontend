@@ -749,7 +749,7 @@ export default function Rtable() {
                         </>
                     }
                 </ToolkitProvider>
-                {isSubmit=== true ? '':
+                {isSubmit=== 0 ? '':
                 <div className="float-end">
                 <Link to="/new_production" >
                 <button className="pBut">
