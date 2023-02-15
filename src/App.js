@@ -62,7 +62,7 @@ import axios from './/Api/Axios';
 import * as axiosURL from './/Api/AxiosUrls';
 var Unread_Notification = axiosURL.Unread_Notification;
 
-const db = getDatabase();
+// const db = getDatabase();
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -128,13 +128,13 @@ function App() {
   //       .catch(err => console.log('An error occured while retrieving foreground message. ', err));
   // }
 
-  function writeUserData( fcm_token) {
-    const db = getDatabase();
-    set(ref(db, `fcm-tokens-web/${fcm_token}`), {
-      token: fcm_token,
-    });
-    console.log(db);
-  }
+  // function writeUserData( fcm_token) {
+  //   const db = getDatabase();
+  //   set(ref(db, `fcm-tokens-web/${fcm_token}`), {
+  //     token: fcm_token,
+  //   });
+  //   console.log(db);
+  // }
 
   
 
