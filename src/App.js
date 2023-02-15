@@ -139,13 +139,13 @@ function App() {
   
 
   useEffect(() => {
-    // handleGetFirebaseToken();
+    handleGetFirebaseToken();
     
   }, []);
 
 
   useEffect(() => {
-    // console.log('rendered');
+    console.log('rendered');
   }, [token]);
 
 
