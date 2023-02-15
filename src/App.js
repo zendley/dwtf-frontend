@@ -53,7 +53,7 @@ import Demage from "./Components/Admin/ASaleChannel/Demage";
 import ANotifications from "./Components/Admin/Notification/Notifications";
 
 
-// import { getFirebaseToken, onForegroundMessage} from './firebase';
+import { getFirebaseToken, onForegroundMessage} from './firebase';
 import { getDatabase, ref, set } from "firebase/database";
 import RequestableAcc from "./Components/Admin/AInventory/RequestableAcc";
 
@@ -62,7 +62,7 @@ import axios from './/Api/Axios';
 import * as axiosURL from './/Api/AxiosUrls';
 var Unread_Notification = axiosURL.Unread_Notification;
 
-// const db = getDatabase();
+const db = getDatabase();
 
 function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -108,40 +108,40 @@ function App() {
 
   const [showNotificationBanner, setShowNotificationBanner] = useState(Notification.permission === 'default');
 
-  // const handleGetFirebaseToken = () => {
-  //   getFirebaseToken()
-  //     .then((firebaseToken) => {
-  //       // console.log('Firebase token: ', firebaseToken);
-  //       if (firebaseToken) {
-  //         setShowNotificationBanner(false);
-  //         // writeUserData( "firebaseToken");
-  //       }
-  //     })
-  //     .catch((err) => console.error('An error occured while retrieving firebase token. ', err))
+  const handleGetFirebaseToken = () => {
+    getFirebaseToken()
+      .then((firebaseToken) => {
+        // console.log('Firebase token: ', firebaseToken);
+        if (firebaseToken) {
+          setShowNotificationBanner(false);
+          // writeUserData( "firebaseToken");
+        }
+      })
+      .catch((err) => console.error('An error occured while retrieving firebase token. ', err))
 
-  //     onForegroundMessage()
-  //       .then((payload) => {
-  //         console.log('Received foreground message: ', payload);
-  //         // const { notification: { title, body } } = payload;
-  //         // toast(<ToastifyNotification title={title} body={body} />);
-  //       })
-  //       .catch(err => console.log('An error occured while retrieving foreground message. ', err));
-  // }
+      onForegroundMessage()
+        .then((payload) => {
+          console.log('Received foreground message: ', payload);
+          // const { notification: { title, body } } = payload;
+          // toast(<ToastifyNotification title={title} body={body} />);
+        })
+        .catch(err => console.log('An error occured while retrieving foreground message. ', err));
+  }
 
-  // function writeUserData( fcm_token) {
-  //   const db = getDatabase();
-  //   set(ref(db, `fcm-tokens-web/${fcm_token}`), {
-  //     token: fcm_token,
-  //   });
-  //   console.log(db);
-  // }
+  function writeUserData( fcm_token) {
+    const db = getDatabase();
+    set(ref(db, `fcm-tokens-web/${fcm_token}`), {
+      token: fcm_token,
+    });
+    console.log(db);
+  }
 
   
 
-  // useEffect(() => {
-  //   handleGetFirebaseToken();
+  useEffect(() => {
+    handleGetFirebaseToken();
     
-  // }, []);
+  }, []);
 
 
   useEffect(() => {
