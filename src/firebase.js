@@ -10,7 +10,7 @@ const firebaseConfig = {
     messagingSenderId: "289887133046",
     appId: "1:289887133046:web:b54e2685fc703b5cfdee57",
     measurementId: "G-D68PK05RE1",
-    // databaseURL: "https://dwtf-4e314-default-rtdb.asia-southeast1.firebasedatabase.app/"
+    databaseURL: "https://dwtf-4e314-default-rtdb.asia-southeast1.firebasedatabase.app/"
   };
 
 // console.log('*** Firebase Config ***', firebaseConfig)
