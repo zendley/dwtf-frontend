@@ -53,7 +53,7 @@ import Demage from "./Components/Admin/ASaleChannel/Demage";
 import ANotifications from "./Components/Admin/Notification/Notifications";
 
 
-import { getFirebaseToken, onForegroundMessage} from './firebase';
+// import { getFirebaseToken, onForegroundMessage} from './firebase';
 import { getDatabase, ref, set } from "firebase/database";
 import RequestableAcc from "./Components/Admin/AInventory/RequestableAcc";
 
@@ -138,10 +138,10 @@ function App() {
 
   
 
-  useEffect(() => {
-    handleGetFirebaseToken();
+  // useEffect(() => {
+  //   handleGetFirebaseToken();
     
-  }, []);
+  // }, []);
 
 
   useEffect(() => {
