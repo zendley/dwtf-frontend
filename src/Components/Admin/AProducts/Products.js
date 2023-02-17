@@ -410,11 +410,12 @@ if(loadermain === true)
     <table className="tablee">
   <thead>
     <tr>
-      <th></th>
+      {/* <th></th> */}
       <th>Product Image</th>
       <th>Donut Name</th>
       <th>Description</th>
       <th>Price</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
