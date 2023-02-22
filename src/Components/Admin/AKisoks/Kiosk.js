@@ -59,7 +59,7 @@ export default function Kiosk() {
 
           setTable(res);
           setLoaderMain(false);
-        // console.log(response);
+        console.log(response);
 
 
     } catch (err) {
