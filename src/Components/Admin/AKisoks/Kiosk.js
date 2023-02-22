@@ -188,7 +188,7 @@ else
         }
       )
       .then(response=>{
-          if(response.status !== 201)
+          if(response.status !== 201 && response.status !==200)
           {
             // console.log(response.status)
               alert("Error", response.status)
@@ -196,6 +196,7 @@ else
           else
           {   
             // console.log(response.data)
+            alert(response.data.message)
             setAddtIsOpen(false);
             setAddData([]);
             setRerender(!rerender);
