@@ -428,7 +428,7 @@ export default function Rtable() {
 
                     
                     // {
-                        writeUserData(list);
+                        // writeUserData(list);
                     // }                   
                       
                 }

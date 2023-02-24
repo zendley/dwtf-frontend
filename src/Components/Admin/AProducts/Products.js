@@ -168,19 +168,19 @@ const AddApi = () => {
   
   setLoaderMain(true);
 
-  if (adddata.dName === ""){
+  if (!adddata.dName){
       alert("Donut Name is Required")
   }
-  else if (adddata.price === ""){
+  else if (!adddata.price){
       alert("Price is Required")
   }
-  else if (adddata.desc === ""){
+  else if (!adddata.desc){
       alert("Description is Required")
   }
-  else if (addimage === ""){
+  else if (!addimage){
       alert("Image is Required")
   }
-  else if (adddata.percentage === ""){
+  else if (!adddata.percentage){
       alert("Percentage to Divide is Required")
   }
   else
@@ -220,6 +220,7 @@ const AddApi = () => {
           }
       })
   }
+  setLoaderMain(false);
 
 }
 
@@ -277,16 +278,16 @@ const EditApi = (id) => {
 
   setLoaderMain(true);
 
-  if (adddata.dName === ""){
+  if (!adddata.dName){
     alert("Donut Name is Required")
 }
-else if (adddata.price === ""){
+else if (!adddata.price){
     alert("Price is Required")
 }
-else if (adddata.desc === ""){
+else if (!adddata.desc){
     alert("Description is Required")
 }
-else if (adddata.percentage === ""){
+else if (!adddata.percentage){
     alert("Percentage to Divide is Required")
 }
 else
@@ -325,6 +326,7 @@ else
         }
     })
 }
+setLoaderMain(false);
 
 }
 

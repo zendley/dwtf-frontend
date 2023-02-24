@@ -355,7 +355,7 @@ export default function AddProd() {
                     var list = response.data.branches
 
                     
-                    writeUserData(list);
+                    // writeUserData(list);
                 }
             })
         }
