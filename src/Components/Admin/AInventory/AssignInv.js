@@ -23,14 +23,14 @@ export default function AssignInv() {
     const [list, setList] = useState([]);
     const [selected, setSelected] = useState('Select Branch');
     const [inputFields, setInputFields] = useState([
-        {item: 'Box of 1', quantity: '0'},
-        {item: 'Box of 2', quantity: '0'},
-        {item: 'Box of 6', quantity: '0'},
-        {item: 'Box of 9', quantity: '0'},
-        {item: 'Box of 12', quantity: '0'},
-        {item: 'Bag of 6', quantity: '0'},
-        {item: 'Bag of 9', quantity: '0'},
-        {item: 'Bag of 12', quantity: '0'},
+      {item: 'Box of 1', quantity: '0', disabled:true},
+      {item: 'Box of 2', quantity: '0', disabled:true},
+      {item: 'Box of 6', quantity: '0', disabled:true},
+      {item: 'Box of 9', quantity: '0', disabled:true},
+      {item: 'Box of 12', quantity: '0', disabled:true},
+      {item: 'Bag of 6', quantity: '0', disabled:true},
+      {item: 'Bag of 9', quantity: '0', disabled:true},
+      {item: 'Bag of 12', quantity: '0', disabled:true},
     ])
     const [loadermain, setLoaderMain] = useState(true)
 
@@ -93,7 +93,7 @@ export default function AssignInv() {
     }
 
     const addFields = () => {
-        let newfield = { item: '', quantity: '' }
+        let newfield = { item: '', quantity: '',disabled:false }
 
         setInputFields([...inputFields, newfield])
     }
@@ -129,14 +129,14 @@ export default function AssignInv() {
               // console.log(res);
               
               setInputFields([
-                {item: 'Box of 1', quantity: '0'},
-                {item: 'Box of 2', quantity: '0'},
-                {item: 'Box of 6', quantity: '0'},
-                {item: 'Box of 9', quantity: '0'},
-                {item: 'Box of 12', quantity: '0'},
-                {item: 'Bag of 6', quantity: '0'},
-                {item: 'Bag of 9', quantity: '0'},
-                {item: 'Bag of 12', quantity: '0'},
+                {item: 'Box of 1', quantity: '0', disabled:true},
+                {item: 'Box of 2', quantity: '0', disabled:true},
+                {item: 'Box of 6', quantity: '0', disabled:true},
+                {item: 'Box of 9', quantity: '0', disabled:true},
+                {item: 'Box of 12', quantity: '0', disabled:true},
+                {item: 'Bag of 6', quantity: '0', disabled:true},
+                {item: 'Bag of 9', quantity: '0', disabled:true},
+                {item: 'Bag of 12', quantity: '0', disabled:true},
               ])
               
               setLoaderMain(false);
@@ -228,7 +228,7 @@ export default function AssignInv() {
                     <div key={index} className="col-6">
                     <div className="cucard">
                         <div style={{width:"48%"}}>
-                            <input  type="text" placeholder='Item' className="form-control" name='item' value={input.item} onChange={event => handleFormChange(index, event)} />
+                            <input  type="text" disabled={input.disabled} placeholder='Item' className="form-control" name='item' value={input.item} onChange={event => handleFormChange(index, event)} />
                         </div>
                         <div style={{width:"48%", marginLeft:'20px'}}>
                             <input  type="number" placeholder='Quantity' className="form-control" name='quantity' value={input.quantity} onChange={event => handleFormChange(index, event)} />

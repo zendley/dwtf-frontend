@@ -189,8 +189,9 @@ export default function LiveStatus() {
                 }
                 else
                 {   
-                    
+                    console.log('tettstststststs')
                     console.log(response.data)
+                    console.log('tettstststststs')
 
                     setHeader(response.data.header);
                     setTable(response.data.dataa);
